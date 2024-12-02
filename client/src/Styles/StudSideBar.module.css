@@ -1,0 +1,63 @@
+
+.sidebar {
+    width: 240px; 
+    background-color:#d00f0f !important; 
+    color: #ffffff;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .sidebar-header {
+    padding: 1rem; 
+    font-size: 1.25rem; 
+    font-weight: bold; 
+    border-bottom: 1px solid #592e83; 
+    text-align: center; 
+    background-color:#592e83; 
+  }
+  
+  .sidebar-content {
+    background-color:#592e83;
+    flex: 1; 
+    padding: 1rem; 
+    overflow-y: auto; 
+  }
+  
+  .sidebar-group {
+    margin-bottom: 0.5rem; /* Spacing between groups */
+  }
+  
+  /* Footer styles */
+  .sidebar-footer {
+    background-color:#592e83;
+    padding: 1rem; /* Add padding */
+    border-top: 1px solid #374151; /* Border at the top (gray-700) */
+    text-align: center; /* Center align content */
+  }
+  
+  /* Button styles */
+  .sidebar-button {
+    display: flex; /* Make the button fill the width */
+    width: 100%; /* Full width */
+    text-align: left; /* Align text to the left */
+    align-items: center;
+    padding: 0.5rem 1rem; /* Inner padding */
+    background: none; /* Transparent background */
+    border: none; /* Remove border */
+    color: inherit; /* Inherit the text color */
+    cursor: pointer; /* Show pointer on hover */
+    font-size: 0.875rem; /* Small font size */
+    border-radius: 4px; /* Add a slight border radius */
+    transition: all 0.2s ease;
+    justify-content: flex-start;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #8836d9; /* Gray-700 hover effect */
+    color: #ffffff;
+  }
+  
+  .sidebar-button:active {
+    background-color:  #8836d9; /* Gray-600 when clicked */
+  }
