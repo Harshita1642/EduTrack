@@ -1,0 +1,143 @@
+.calendarContainer {
+    width:20vw;
+    height: 320px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f9f5ff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  
+  .monthTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .navButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ffbf69;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navButton:hover {
+    background-color: #ffa94d;
+    transform: scale(1.1);
+  }
+  
+  .weekdaysGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 10px;
+    background-color: #9b72cf;
+    border-radius: 5px;
+  }
+  
+  .weekday {
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    border-radius: 5px;
+  }
+  
+  .calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .calendarDay {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    /* border: 1px solid #eee; */
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .calendarDay:hover:not(:empty) {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+  }
+  
+  .today {
+    background-color: #ff9f1c;
+    color: white;
+    font-weight: bold;
+    border-color: #ffbf69;
+  }
+  
+  .today:hover {
+    background-color: #ffa94d !important;
+    border-color: #ffa94d !important;
+  }
+  
+  /* Optional: Add some responsive styles */
+  @media (max-width: 400px) {
+    .calendarContainer {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .calendarDay {
+      font-size: 0.8rem;
+    }
+  
+    .weekday {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Optional: Add animations */
+  .calendarDay {
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Optional: Add selected state */
+  .selected {
+    background-color: #ffd699;
+    border-color: #ffbf69;
+  }
+  
+  /* Optional: Add disabled state */
+  .disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }

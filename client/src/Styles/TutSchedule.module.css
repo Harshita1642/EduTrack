@@ -1,0 +1,68 @@
+
+.container {
+    display: flex; 
+    height: 100vh; 
+    margin-left: auto; 
+    width: 100%;
+  }
+  
+  .mainContent {
+    width: 80%; /* Main content takes the remaining 80% of the width */
+    padding: 20px; /* Add padding for spacing */
+    overflow-y: auto; /* Enable scrolling if the content overflows */
+  }
+  
+  
+  /* Task form container */
+  .taskForm {
+    display: flex;
+    flex-direction: row; /* Change to row to display elements horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    gap: 15px; /* Space between form elements */
+    max-width: 900px; /* Limit form width for better readability */
+    margin-bottom: 20px; /* Space below the form */
+}
+
+/* Adjust individual form elements to have a fixed width (optional) */
+.taskForm > div {
+    flex: 1; /* Allow elements to grow equally */
+    min-width: 150px; /* Minimum width for each input field */
+}
+  
+  /* Task list container */
+  .taskList {
+    margin-top: 20px;
+  }
+  .taskItem {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .taskItem div {
+    max-width: 80%; /* Prevent content from overlapping checkbox */
+  }
+  
+  /* Checkbox alignment */
+  .taskItem input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  /* Button.module.css */
+.Schedulebutton {
+  background-color: #592e83;
+  color: white;
+  border-radius: 8px; /* Curved corners */
+  padding: 10px 20px; /* Spacing inside the button */
+  border: none; /* Removes default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Optional: Adjust font size */
+  transition: background-color 0.3s ease; /* Optional: Add a hover effect */
+}
+
+.Schedulebutton:hover {
+  background-color: #451f66; /* Optional: Darker shade on hover */
+}
