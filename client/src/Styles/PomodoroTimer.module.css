@@ -1,0 +1,75 @@
+.timerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/client/public/assets/pomodorobg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  
+  .topButtons {
+    display: flex;
+    gap: 5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .modeButton {
+    background: transparent;
+    border: 2px solid transparent;
+    color: rgb(0, 0, 0);
+    padding: 0.7rem 2rem;
+    font-weight: 500;
+    border-radius: 100px;
+    cursor: pointer;
+    border: 2px solid purple;
+    transition: background 0.3s ease;
+  }
+  
+  .modeButton.active {
+    background: #592e83;
+    color: white;
+  }
+  
+  .timerDisplay {
+    font-size: 8rem;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  
+  .bottomButtons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .startButton {
+    background: #592e83;
+    color: white;
+    border: none;
+    padding: 0.7rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 100px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .startButton:hover {
+    background: lightpurple;
+  }
+  
+  .resetButton {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .resetButton:hover {
+    color: lightslategray;
+  }
+  
