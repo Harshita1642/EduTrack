@@ -9,6 +9,6 @@ export const loginUser = (data) => API.post("/user/login", data);
 export const forgotPassword = (data) => API.post("/user/forgot", data);
 
 export const resetPassword = (data) =>
-  API.post(`/user/reset-password?token=${data.token}`, { password: data.password });
+  API.post(`/user/reset?token=${data.token}`, { password: data.password });
 
 export const getMyProfile = () => API.get("/user/profile");

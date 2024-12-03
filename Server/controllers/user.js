@@ -135,7 +135,7 @@ export const forgotPassword = TryCatch(async (req, res) => {
   const token = jwt.sign({ email }, process.env.Forgot_Secret);
 
   const data = { email, token };
-
+    // localStorage.setItem("resetToken",token);
   await sendForgotMail("E learning", data);
 
   user.resetPasswordExpire = Date.now() + 5 * 60 * 1000;
@@ -144,6 +144,7 @@ export const forgotPassword = TryCatch(async (req, res) => {
 
   res.json({
     message: "Reset Password Link is send to you mail",
+    token
   });
 });
 
