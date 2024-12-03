@@ -1,12 +1,15 @@
 
 .sidebar {
-    width: 240px; 
-    background-color:#d00f0f !important; 
+    width: 240px;
+    background-color: #d00f0f !important;
     color: #ffffff;
-    height: 100vh; 
+    height: 100vh;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 5; /* Sidebar should be below the timer */
   }
+  
   
   .sidebar-header {
     padding: 1rem; 
