@@ -1,5 +1,5 @@
 import { Timetable } from "../models/Timetable.js";
-import TryCatch from "../middlewares/tryCatch.js";
+import TryCatch from "../middlewares/TC.js";
 
 const validateFields = (fields, req, res) => {
     for (const field of fields) {

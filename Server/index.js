@@ -30,12 +30,14 @@ import userRoutes from "./routes/user.js";
 import courseRoutes from "./routes/course.js";
 import adminRoutes from "./routes/admin.js";
 import timeTableRoutes from "./routes/TimeTable.js";
+import quizRoutes from "./routes/quiz.js";
 
 // using routes
 app.use("/api", userRoutes);
 app.use("/api", courseRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", timeTableRoutes);
+app.use("/api",quizRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
