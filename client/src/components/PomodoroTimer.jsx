@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import s from "../styles/PomodoroTimer.module.css"; 
+import s from "../styles/PomodoroTimer.module.css";
+import pomodoroSound from "../assets/pomodorosound.mp3"; 
 
 const PomodoroTimer = () => {
   const [time, setTime] = useState(25 * 60); 
   const [isRunning, setIsRunning] = useState(false); 
   const [activeMode, setActiveMode] = useState("pomodoro"); 
+ 
+  const audio = new Audio(pomodoroSound);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
@@ -21,7 +24,7 @@ const PomodoroTimer = () => {
   };
 
   const toggleTimer = () => {
-    setIsRunning((prev) => !prev); 
+    setIsRunning((prev) => !prev);
   };
 
   const resetTimer = () => {
@@ -35,9 +38,18 @@ const PomodoroTimer = () => {
       timer = setInterval(() => setTime((prev) => prev - 1), 1000);
     } else if (time === 0) {
       setIsRunning(false);
+      audio.play(); 
+      
+      const resetTime =
+        activeMode === "pomodoro"
+          ? 25 * 60
+          : activeMode === "shortBreak"
+          ? 5 * 60
+          : 15 * 60;
+      setTimeout(() => setTime(resetTime), 1000); 
     }
     return () => clearInterval(timer);
-  }, [isRunning, time]);
+  }, [isRunning, time, activeMode, audio]);
 
   return (
     <div className={s.timerContainer}>
@@ -69,7 +81,7 @@ const PomodoroTimer = () => {
           {isRunning ? "Pause" : "Start"}
         </button>
         <button className={s.resetButton} onClick={resetTimer}>
-          &#x21bb; 
+          &#x21bb;
         </button>
       </div>
     </div>
