@@ -7,7 +7,7 @@ import {
   SidebarHeader,
 } from "./ui/sidebar";
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import {
   HomeIcon,
   ClockIcon,
@@ -21,35 +21,40 @@ import s from "../Styles/StudSideBar.module.css";
 
 
 
-const StudSideBar = () => {
+const StudSideBar = ({setTabContent}) => {
+  const navigate=useNavigate();
+  const handleNavigation = () => {
+    navigate('/StudSchedule'); 
+  };
+  const navigateToOtherComponent = (component) => { setTabContent(component); };
   return (
     <Sidebar className={s["sidebar"]}>
       <SidebarHeader className={s["sidebar-header"]}>My App</SidebarHeader>
       <SidebarContent className={s["sidebar-content"]}>
-        <Link to="/StudDash">
+        
         <SidebarGroup className={s["sidebar-group"]}>
-        <Button className={s["sidebar-button"]} variant="ghost" size="sm">
+        <Button className={s["sidebar-button"]} variant="ghost" size="sm" onClick={() => navigateToOtherComponent('StudDashboard')}>
           <HomeIcon />
           <span>Dashboard</span>
         </Button>
         </SidebarGroup>
-        </Link>
-        <Link to="/timer">
+        
+        
         <SidebarGroup className={s["sidebar-group"]}>
-          <Button className={s["sidebar-button"]} variant="ghost" size="sm">
+          <Button className={s["sidebar-button"]} variant="ghost" size="sm" onClick={() => navigateToOtherComponent('timer')}>
             <ClockIcon className="w-5 h-5 mr-2" /> 
             Timer
           </Button>
         </SidebarGroup>
-        </Link>
+       
         <SidebarGroup className={s["sidebar-group"]}>
-          <Button className={s["sidebar-button"]} variant="ghost" size="sm">
+          <Button className={s["sidebar-button"]} variant="ghost" size="sm" onClick={() => navigateToOtherComponent('Schedule')}>
             <CalendarIcon className="w-5 h-5 mr-2" /> 
             Schedule
           </Button>
         </SidebarGroup>
         <SidebarGroup className={s["sidebar-group"]}>
-          <Button className={s["sidebar-button"]} variant="ghost" size="sm">
+          <Button className={s["sidebar-button"]} variant="ghost" size="sm" onClick={() => navigateToOtherComponent('Courses')}>
             <AcademicCapIcon className="w-5 h-5 mr-2" /> {/* Courses icon */}
             Courses
           </Button>
