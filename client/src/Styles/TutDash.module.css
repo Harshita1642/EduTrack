@@ -1,0 +1,25 @@
+.container {
+    display: flex; 
+    height: 100vh; 
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    width: 100vw;
+    background-color: #d8c0f7;
+    transform: translateX(-20px);
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+.calendar{
+    position: absolute;
+    top:55px;
+    left:970px
+}
+.todo{
+    position: absolute;
+    top:360px;
+    left:970px
+}
+/* .stats{
+    
+   
+} */

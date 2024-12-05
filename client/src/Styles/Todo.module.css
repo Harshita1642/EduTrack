@@ -1,0 +1,70 @@
+.container {
+    background-color: #592e83;
+    padding: 20px;
+    font-family: sans-serif;
+    border-radius: 20px;
+    color: white;
+    margin: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height:350px;
+    width:20vw;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  
+  .taskList {
+    display: flex;
+    flex-direction: column; /* Stack tasks vertically */
+    gap: 15px; /* Space between tasks */
+  }
+  
+  .taskItem {
+    display: flex; /* Align content horizontally within each task */
+    align-items: center; /* Vertically center the content */
+    justify-content: space-between; /* Space out the content evenly */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #592e83;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .taskContent {
+    flex: 1; /* Allow the content to take available space */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between title, description, etc. */
+  }
+  
+  .taskItem h3 {
+    margin: 0;
+  }
+  
+  .taskItem p {
+    margin: 0;
+  }
+  
+  .selectDropdown {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #9b72cf;
+  }
+
+  .container::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+    background: #4e3a6d; /* Slightly lighter purple for the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #c1a8e5; /* Lighter color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #a088d3; /* Darker shade for thumb on hover */
+}

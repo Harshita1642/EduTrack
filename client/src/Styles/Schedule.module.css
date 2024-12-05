@@ -1,0 +1,291 @@
+
+.container {
+    display: flex; 
+    height: 100vh; 
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    width: 100vw;
+    background-color: #d8c0f7;
+    transform: translateX(-30px);
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  .mainContent {
+    width: 70%; /* Main content takes the remaining 80% of the width */
+    padding: 20px; /* Add padding for spacing */
+    overflow-y: hidden; 
+    box-sizing: border-box;
+    transform: translateX(60px);
+  }
+  
+  /* Task form container */
+  .taskForm {
+    display: flex;
+    flex-direction: row; /* Change to row to display elements horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    gap: 15px; /* Space between form elements */
+    max-width: 100%; /* Limit form width for better readability */
+    margin-bottom: 20px;
+    padding:20px;
+    border-radius: 25px;
+    background-color: #e8dcf7;
+  }
+
+
+.taskForm > div {
+    flex: 1; /* Allow elements to grow equally */
+    min-width: 150px; /* Minimum width for each input field */
+}
+  
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem; /* Increased space below the input for better readability */
+}
+
+.label {
+  font-size: 14px; /* Slightly larger font for better visibility */
+  font-weight: 600; /* Semi-bold for better emphasis */
+  margin-bottom: 3px;
+  color: #444; /* Slightly softer dark gray */
+}
+
+.inputField {
+  padding: 0.2rem; /* Increased padding for better click/tap experience */
+  border: 1px solid #ddd; /* Softer border */
+  border-radius: 6px; /* Slightly more rounded corners */
+  font-size: 16px; /* Better readability */
+  background-color: #f9f9f9; /* Subtle background color */
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for interactions */
+}
+
+.inputField:focus {
+  border-color: #6c3ba2; /* Richer purple for a friendly highlight */
+  outline: none;
+  background-color: #fff; /* Pure white for focus state */
+  box-shadow: 0 0 6px rgba(108, 59, 162, 0.3); /* Softer glow for a modern feel */
+}
+
+.inputField::placeholder {
+  color: #bbb; /* Softer placeholder color */
+  font-style: normal; /* Removed italic for a cleaner look */
+}
+
+.inputField:hover {
+  background-color: #f3f3f3; /* Slight hover effect for a dynamic feel */
+}
+
+.inputField:disabled {
+  background-color: #e9ecef; /* Grayish background for disabled input */
+  cursor: not-allowed; /* Change cursor for disabled state */
+  color: #999; /* Text color for disabled state */
+  border-color: #ccc;
+}
+
+
+.taskList {
+  margin-top: 20px;
+  padding: 10px; /* Add padding for spacing */
+  border: 1px solid #e0e0e0; /* Light border around the task list */
+  border-radius: 10px; /* Rounded corners for the task list */
+  background-color: #f9f5ff; /* Subtle background for the list */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+}
+.taskName{
+  font-weight: 600; /* Slightly bolder than normal */
+  font-size: 1.1rem; /* Optional: Increase font size for better visibility */
+  color: #333; /* Optional: Set color to dark gray for better contrast */
+}
+
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px; /* Add more horizontal padding for better spacing */
+  margin-bottom: 15px;
+  border-radius: 8px; /* Slightly larger rounding for modern look */
+  border: 1px solid #ddd; /* Soft border */
+  background-color: #ffffff; /* White background for clarity */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.taskItem:hover {
+  background-color: #f3e9ff; /* Light purple on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Elevated shadow */
+}
+
+.taskItem div {
+  max-width: 80%; /* Prevent content overlap */
+  word-wrap: break-word; /* Handle long text gracefully */
+  color: #333; /* Ensure good contrast for text */
+  font-size: 1rem; /* Standard font size */
+}
+
+/* Dropdown for status */
+.statusDropdown {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.statusDropdown:focus {
+  border-color: #592e83;
+  outline: none;
+  box-shadow: 0 0 4px rgba(89, 46, 131, 0.4);
+}
+
+.statusLabel {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.statusPending {
+  color: #ffcc00; /* Yellow for Pending */
+}
+
+.statusStarted {
+  color: #007bff; /* Blue for Started */
+}
+
+.statusCompleted {
+  color: #28a745; /* Green for Completed */
+}
+
+
+.Schedulebutton {
+  background-color: #592e83; /* Retain purple base color */
+  color: white;
+  border-radius: 10px; /* More rounded for a softer feel */
+  padding: 12px 24px; /* Increase padding for comfort */
+  border: none; /* Remove default border */
+  font-size: 1rem; /* Slightly larger text */
+  font-weight: bold; /* Bold for emphasis */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s; /* Add transform for click effect */
+}
+
+.Schedulebutton:hover {
+  background-color: #451f66; /* Slightly darker purple */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.Schedulebutton:active {
+  background-color: #3a1754; /* Even darker on click */
+  transform: scale(0.98); /* Slight press-in effect */
+}
+.removeButton {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease;
+}
+
+.removeButton:hover {
+  background-color: #c0392b;
+}
+
+.clearAllButton {
+  background-color: #592e83;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.clearAllButton:hover {
+  background-color: #592e83;
+}
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column; /* Stack items vertically */
+    height: auto;
+  }
+
+  .mainContent {
+    width: 100%;
+  }
+
+  .taskForm {
+    flex-direction: column; /* Stack form elements */
+  }
+
+  .taskForm > div {
+    flex: 1 1 auto;
+  }
+
+  .taskItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Small Screens (Phones) */
+@media (max-width: 768px) {
+  .taskForm {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .taskForm > div {
+    min-width: 100%; /* Make form fields full width */
+  }
+
+  .Schedulebutton,
+  .removeButton,
+  .clearAllButton {
+    width: 100%; /* Buttons take full width */
+    margin-bottom: 10px; /* Add spacing between buttons */
+  }
+
+  .taskItem {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .taskList {
+    padding: 10px;
+  }
+}
+
+/* Extra Small Screens (Very Small Phones) */
+@media (max-width: 480px) {
+  .inputField {
+    font-size: 14px;
+    padding: 0.15rem;
+  }
+
+  .Schedulebutton {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .taskItem {
+    padding: 8px;
+  }
+}
+
+/* Prevent Sliding */
+body {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for better UX */
+}
