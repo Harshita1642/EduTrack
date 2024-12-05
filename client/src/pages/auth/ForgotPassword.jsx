@@ -10,6 +10,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     try {
       const response = await forgotPassword({ email });
+      localStorage.setItem("resetToken",response.data.token);
       toast.success(response.data.message);
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong!");

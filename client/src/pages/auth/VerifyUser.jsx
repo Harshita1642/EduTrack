@@ -30,30 +30,35 @@ export default function VerifyUser() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
-      <h2 className="text-xl font-bold text-center mb-6">Verify OTP</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="otp" className="block text-sm font-medium text-gray-700">
-            OTP
-          </label>
-          <input
-            id="otp"
-            type="text"
-            placeholder="Enter OTP"
-            value={formData.otp}
-            onChange={(e) => setFormData({ ...formData, otp: e.target.value })}
-            className="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
-        >
-          Verify
-        </button>
-      </form>
+    <div className="min-h-screen w-screen bg-[#d8c0f7] flex items-center justify-center absolute top-0 left-0 right-0 bottom-0">
+      <div className="w-full max-w-sm p-8 bg-purple-900 rounded-lg shadow-xl text-white mx-4">
+        <h2 className="text-3xl font-bold text-center mb-8 text-white" 
+            style={{ fontFamily: "'Playfair Display', serif" }}>
+          Verify OTP
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label htmlFor="otp" className="block text-sm font-medium text-purple-100">
+              OTP
+            </label>
+            <input
+              id="otp"
+              type="text"
+              placeholder="Enter OTP"
+              value={formData.otp}
+              onChange={(e) => setFormData({ ...formData, otp: e.target.value })}
+              className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-purple-200 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm text-gray-800"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-2/3 mx-auto block bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-600 focus:outline-none focus:ring focus:ring-purple-300"
+          >
+            Verify
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

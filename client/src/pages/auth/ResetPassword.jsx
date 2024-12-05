@@ -10,19 +10,23 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const params = new URLSearchParams(window.location.search); // Get token from URL
-    const token = params.get("token");
-
-    if (!token) {
-      toast.error("Invalid or missing token!");
-      return;
-    }
-
+    // setBtnLoading(true);
     try {
-      const response = await resetPassword({ ...formData, token });
-      toast.success(response.data.message);
+      const {data} = await resetPassword({token : localStorage.getItem("resetToken"), password : formData.password});
+      localStorage.removeItem("resetToken");
+      // const { data } = await axios.post(
+      //   `${server}/api/user/reset?token=${params.token}`,
+      //   {
+      //     password : formData.password,
+      //   }
+      // );
+
+      toast.success(data.message);
+      navigate("/login");
+      // setBtnLoading(false);
     } catch (error) {
-      toast.error(error.response?.data?.message || "Password reset failed!");
+      toast.error(error.response.data?.message);
+      // setBtnLoading(false);
     }
   };
 

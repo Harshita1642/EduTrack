@@ -1,4 +1,4 @@
-import TryCatch from "../middlewares/tryCatch.js";
+import TryCatch from "../middlewares/TC.js";
 import { Courses } from "../models/Courses.js";
 import { Lecture } from "../models/Lecture.js";
 import { rm } from "fs";
@@ -7,16 +7,16 @@ import fs from "fs";
 import { User } from "../models/User.js";
 
 export const createCourse = TryCatch(async (req, res) => {
-  const { title, description, category, createdBy, duration, price } = req.body;
+  const { title, description, category, createdBy, duration, price,image } = req.body;
 
-  const image = req.file;
+  // const image = req.file;
 
   await Courses.create({
     title,
     description,
     category,
     createdBy,
-    image: image?.path,
+    image,
     duration,
     price,
   });

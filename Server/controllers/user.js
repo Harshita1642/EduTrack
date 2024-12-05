@@ -1,15 +1,12 @@
 import { User } from "../models/User.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import sendMail, { sendForgotMail } from "../middlewares/sendMail.js";
-import TryCatch from "../middlewares/tryCatch.js";
+import TryCatch from "../middlewares/TC.js";
 
 export const register = TryCatch(async (req, res) => {
-  const { email, name, password,role  } = req.body;
-  if (!["student", "teacher"].includes(role)) {
-    return res.status(400).json({ message: "Invalid role" });
-  }
-  
+  const { email, name, password } = req.body;
+
   let user = await User.findOne({ email });
 
   if (user)
@@ -23,11 +20,10 @@ export const register = TryCatch(async (req, res) => {
     name,
     email,
     password: hashPassword,
-    role 
   };
 
-  const otp = Math.floor(100000 + Math.random() * 900000);
-  console.log("Generated OTP:", otp);
+  const otp = Math.floor(Math.random() * 1000000);
+
   const activationToken = jwt.sign(
     {
       user,
@@ -54,37 +50,27 @@ export const register = TryCatch(async (req, res) => {
 
 export const verifyUser = TryCatch(async (req, res) => {
   const { otp, activationToken } = req.body;
-  // const otp = Number(otp2);
-  console.log(otp);
-  console.log("token",activationToken);
-  const decoded = await jwt.verify(activationToken, process.env.ACTIVATION_SECRET);
 
-if (!decoded) {
-  // console.log("chla");
-  return res.status(400).json({ message: "OTP Expired" });
+  const verify = jwt.verify(activationToken, process.env.Activation_Secret);
 
-}
-
-// Compare the OTP
-if (decoded.otp !== otp) {
-  console.log("chla");
-  return res.status(400).json({ message: "Wrong OTP" });
-}
-console.log("Decoded Token:", decoded);
-
-    const { name, email, password, role } = decoded.user;
-    const user = new User({
-      name,
-      email,
-      password,
-      role,
+  if (!verify)
+    return res.status(400).json({
+      message: "Otp Expired",
     });
 
-    await user.save();
+  if (verify.otp !== otp)
+    return res.status(400).json({
+      message: "Wrong Otp",
+    });
+
+  await User.create({
+    name: verify.user.name,
+    email: verify.user.email,
+    password: verify.user.password,
+  });
 
   res.json({
     message: "User Registered",
-    role : user.role
   });
 });
 

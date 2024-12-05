@@ -17,8 +17,11 @@ const schema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["student", "teacher"],
-      default: "student", 
+      default: "user",
+    },
+    mainrole: {
+      type: String,
+      default: "user",
     },
     subscription: [
       {
