@@ -19,7 +19,7 @@ const PomodoroTimer = () => {
     setActiveMode(mode);
     setIsRunning(false);
     if (mode === "pomodoro") setTime(25 * 60);
-    if (mode === "shortBreak") setTime(3);
+    if (mode === "shortBreak") setTime(5 * 60);
     if (mode === "longBreak") setTime(15 * 60);
   };
 
