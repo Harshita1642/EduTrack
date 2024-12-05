@@ -1,7 +1,7 @@
 
 .sidebar {
     width: 240px;
-    background-color: #d00f0f !important;
+    background-color:#592e83;
     color: #ffffff;
     height: 100vh;
     display: flex;
@@ -28,6 +28,7 @@
   }
   
   .sidebar-group {
+    background-color:#592e83;
     margin-bottom: 0.5rem; /* Spacing between groups */
   }
   

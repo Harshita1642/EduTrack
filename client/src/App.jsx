@@ -10,7 +10,6 @@ import { Toaster } from "sonner";
 import VerifyUser from "./pages/auth/VerifyUser";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
-import TutSchedule from "./pages/TutSchedule"
 
 const App = () => {
 
@@ -20,14 +19,11 @@ const App = () => {
         <Routes>
           <Route path="/tutDash" element={<TutDashboard />} />
           <Route path="/StudDash" element={<StudDashboard />} />
-          <Route path="/timer" element={<Pomodoro />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify" element={<VerifyUser />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
-          <Route path="/TutSchedule" element={<TutSchedule />}/>
-          
         </Routes>
       </Router>
       <Toaster />
