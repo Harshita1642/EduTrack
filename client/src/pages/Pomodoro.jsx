@@ -9,10 +9,9 @@ const Pomodoro = () => {
   return (
     <div
       className="flex w-full h-screen"
-      style={{ backgroundColor }} 
-    >
+      style={{ backgroundColor}} >
       <StudSideBar />
-      <div className="flex-1">
+      <div className="flex-1 flex justify-center items-center">
         <PomodoroTimer />
       </div>
     </div>
