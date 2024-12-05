@@ -1,9 +1,4 @@
-body{
-  margin:0;
-  padding:0;
-  background-color: #d8c0f7;
-  justify-items: center;
-}
+
 .timerContainer {
   display: flex;
   flex-direction: column;
@@ -14,6 +9,12 @@ body{
   /* background-color: red; */
   background-size: cover;
   background-position: center;
+  width:100vw;
+    margin:0;
+    padding:0;
+    background-color: #d8c0f7;
+    justify-items: center;
+ transform: translateX(-175px);
 }
 
 .topButtons {
