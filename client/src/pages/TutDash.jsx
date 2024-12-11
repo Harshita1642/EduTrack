@@ -5,6 +5,7 @@ import PomodoroTimer from "../components/PomodoroTimer";
 import Schedule from "../pages/Schedule";
 import Todo from "../components/Todo";
 import Stats from "../components/Stats"
+import Dictionary from "../components/Dictionary"
 import c from '../Styles/TutDash.module.css'
 const TutDashboard = () => {
   const [tabContent, setTabContent] = useState('TutDashboard');
@@ -22,7 +23,13 @@ const TutDashboard = () => {
             <Todo/>
             </div>
             <div className={c.stats}>
-              <Stats/>
+              {/* <Stats/> */}
+            </div>
+            <div>
+              <Dictionary/>
+            </div>
+            <div style={{position:'absolute',top:'100px',left:'200px'}}>
+              <h1>Hi</h1>
             </div>
 
           </div>
