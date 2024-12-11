@@ -15,6 +15,7 @@ import TakeABreakPage from "./pages/TakeABreakPage";
 const App = () => {
 
   return (
+    
     <SidebarProvider>
       <Router>
         <Routes>

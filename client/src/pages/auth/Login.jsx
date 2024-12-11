@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { loginUser } from "../../services/userAuth";
+import { UserLogin } from "../../services/userAuth";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 
@@ -9,10 +9,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await loginUser(formData);
+      const response = await UserLogin(formData);
       toast.success(`Welcome back ${response.data.user.name}`);
       localStorage.setItem("token", response.data.token);
-      if(response.data.user.role ==='student'){
+      if(response.data.user.role ==='user'){
         navigate('/StudDash');
       }
       else{
