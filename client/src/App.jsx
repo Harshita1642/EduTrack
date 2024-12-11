@@ -10,6 +10,7 @@ import { Toaster } from "sonner";
 import VerifyUser from "./pages/auth/VerifyUser";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
+import TakeABreakPage from "./pages/TakeABreakPage";
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/verify" element={<VerifyUser />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/takeabreak" element={<TakeABreakPage />} />
         </Routes>
       </Router>
       <Toaster />
