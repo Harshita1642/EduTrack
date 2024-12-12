@@ -77,7 +77,7 @@ const TutSideBar = ({setTabContent}) => {
           </Button>
         </SidebarGroup>
         <SidebarGroup className={c["sidebar-group"]}>
-          <Button className={c["sidebar-button"]} variant="ghost" size="sm">
+          <Button className={c["sidebar-button"]} variant="ghost" size="sm" onClick={() => navigateToOtherComponent('UploadNew')}>
             <CloudArrowUpIcon className="w-5 h-5 mr-2" /> {/* Upload icon */}
             Upload New
           </Button>
