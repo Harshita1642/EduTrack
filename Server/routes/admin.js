@@ -1,5 +1,5 @@
 import express from "express";
-import { isAdmin, isAuth } from "../middlewares/isAuth.js";
+import { isTeacher, isAuth } from "../middlewares/isAuth.js";
 import {
   addLectures,
   createCourse,
@@ -13,12 +13,12 @@ import { uploadFiles } from "../middlewares/multer.js";
 
 const router = express.Router();
 
-router.post("/course/new",  createCourse);
-router.post("/course/:id", isAuth, isAdmin, uploadFiles, addLectures);
-router.delete("/course/:id", isAuth, isAdmin, deleteCourse);
-router.delete("/lecture/:id", isAuth, isAdmin, deleteLecture);
-router.get("/stats", isAuth, isAdmin, getAllStats);
+router.post("/course/new", isAuth, isTeacher, uploadFiles, createCourse);
+router.post("/course/:id", isAuth, isTeacher, uploadFiles, addLectures);
+router.delete("/course/:id", isAuth, isTeacher, deleteCourse);
+router.delete("/lecture/:id", isAuth, isTeacher, deleteLecture);
+router.get("/stats", isAuth, isTeacher, getAllStats);
 router.put("/user/:id", isAuth, updateRole);
-router.get("/users", isAuth, isAdmin, getAllUser);
+router.get("/users", isAuth, isTeacher, getAllUser);
 
 export default router;

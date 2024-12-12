@@ -6,7 +6,7 @@ export const isAuth = async (req, res, next) => {
     const token = req.headers.token;
     
     if (!token)
-      return res.status(403).json({
+      return res.status(401).json({
         message: "Please Login",
       });
       
@@ -27,6 +27,22 @@ export const isAdmin = (req, res, next) => {
     if (req.user.role !== "admin")
       return res.status(403).json({
         message: "You are not admin",
+      });
+
+    next();
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const isTeacher = (req, res, next) => {
+  try {
+    console.log(req.user.role)
+    if (req.user.role !== "teacher")
+      return res.status(403).json({
+        message: "You are not teacher",
       });
 
     next();

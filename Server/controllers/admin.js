@@ -7,16 +7,16 @@ import fs from "fs";
 import { User } from "../models/User.js";
 
 export const createCourse = TryCatch(async (req, res) => {
-  const { title, description, category, createdBy, duration, price,image } = req.body;
-
-  // const image = req.file;
+  const { title, description, category, createdBy, duration, price } = req.body;
+  console.log(req.body);
+  const image = req.file;
 
   await Courses.create({
     title,
     description,
     category,
     createdBy,
-    image,
+    image:image?.path,
     duration,
     price,
   });
