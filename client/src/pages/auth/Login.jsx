@@ -1,23 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { UserLogin } from "../../services/userAuth";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { UserData } from "../../context/UserContext";
 
 export default function Login() {
+  const {loginUser} = UserData();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await UserLogin(formData);
-      toast.success(`Welcome back ${response.data.user.name}`);
-      localStorage.setItem("token", response.data.token);
-      if(response.data.user.role ==='user'){
-        navigate('/StudDash');
-      }
-      else{
-        navigate('/tutDash')
-      }
+      await loginUser(formData.email,formData.password,navigate);
+      // toast.success(`Welcome back ${response.data.user.name}`);
+      // localStorage.setItem("token", response.data.token);
+      // if(response.data.user.role ==='user'){
+      //   navigate('/StudDash');
+      // }
+      // else{
+      //   navigate('/tutDash')
+      // }
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong!");
     }

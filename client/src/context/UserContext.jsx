@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import {toast} from "sonner";
-import { UserLogin,userRegister, verifyUser } from "../services/userAuth.js";
+import { getMyProfile, UserLogin,userRegister, verifyUser } from "../services/userAuth.js";
 
 const UserContext = createContext();
 
@@ -25,7 +25,11 @@ export const UserContextProvider = ({ children }) => {
       setUser(data.user);
       setIsAuth(true);
       setBtnLoading(false);
-      // navigate("/");
+      if(data.user.role==='user')
+        navigate("/StudDash");
+      else{
+        navigate("/tutDash");
+      }
       // fetchMyCourse();
     } catch (error) {
       setBtnLoading(false);
@@ -74,7 +78,7 @@ export const UserContextProvider = ({ children }) => {
 
   async function fetchUser() {
     try {
-      const { data } = await verifyUser( {
+      const { data } = await getMyProfile( {
         headers: {
           token: localStorage.getItem("token"),
         },

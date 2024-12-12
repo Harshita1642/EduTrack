@@ -11,4 +11,4 @@ export const forgotPassword = (data) => API.post("/user/forgot", data);
 export const resetPassword = (data) =>
   API.post(`/user/reset?token=${data.token}`, { password: data.password });
 
-export const getMyProfile = () => API.get("/user/profile");
+export const getMyProfile = (headers) => API.get("/user/me",{headers});
