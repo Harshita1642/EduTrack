@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import {toast} from "sonner";
-import { getMyProfile, UserLogin,userRegister, verifyUser } from "../services/userAuth.js";
+import { getMyProfile, UserLogin,userRegister} from "../services/userAuth.js";
 
 const UserContext = createContext();
 
@@ -11,8 +11,8 @@ export const UserContextProvider = ({ children }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  async function loginUser(email, password, navigate) {
-    // async function loginUser(email, password, navigate, fetchMyCourse) {
+  async function loginUser(email, password, navigate,fetchMyCourse) {
+    
     setBtnLoading(true);
     try {
       const { data } = await UserLogin( {
@@ -30,7 +30,7 @@ export const UserContextProvider = ({ children }) => {
       else{
         navigate("/tutDash");
       }
-      // fetchMyCourse();
+      fetchMyCourse();
     } catch (error) {
       setBtnLoading(false);
       setIsAuth(false);

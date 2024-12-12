@@ -1,17 +1,18 @@
-import { useContext, useState } from "react";
-import { UserLogin } from "../../services/userAuth";
+import { useState } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { UserData } from "../../context/UserContext";
+import { CourseData } from "../../context/CourseContext";
 
 export default function Login() {
   const {loginUser} = UserData();
+  const {fetchMyCourse} = CourseData();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await loginUser(formData.email,formData.password,navigate);
+      await loginUser(formData.email,formData.password,navigate,fetchMyCourse);
       // toast.success(`Welcome back ${response.data.user.name}`);
       // localStorage.setItem("token", response.data.token);
       // if(response.data.user.role ==='user'){
