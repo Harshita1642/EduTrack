@@ -4,12 +4,12 @@ import { User } from "../models/User.js";
 export const isAuth = async (req, res, next) => {
   try {
     const token = req.headers.token;
-
+    console.log(token)
     if (!token)
       return res.status(403).json({
         message: "Please Login",
       });
-
+      console.log("chla");
     const decodedData = jwt.verify(token, process.env.Jwt_Sec);
 
     req.user = await User.findById(decodedData._id);

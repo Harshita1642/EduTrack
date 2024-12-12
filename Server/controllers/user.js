@@ -8,9 +8,8 @@ export const register = TryCatch(async (req, res) => {
   const { email, name, password,role } = req.body;
   console.log(role);
   let dbRole;
-  if(role === 'Student')
-      dbRole = 'user';
-  else  dbRole = 'teacher'
+  if(role !== 'user')
+    dbRole = 'teacher';
   console.log(dbRole);
   let user = await User.findOne({ email });
 
