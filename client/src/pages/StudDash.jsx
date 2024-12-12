@@ -6,9 +6,11 @@ import Schedule from "../pages/Schedule";
 import Todo from "../components/Todo";
 import ScoreGraphs from "../components/ScoreGraphs";
 import s from '../Styles/StudDash.module.css';
+import Profile from "../pages/Profile";
 import TakeABreak from "../components/TakeABreak";
 import TakeABreakPage from "../pages/TakeABreakPage";
 import Courses from "@/components/Courses/Courses";
+import Dictionary from "@/components/Dictionary";
 const StudDashboard = () => {
   const [tabContent, setTabContent] = useState('StudDashboard');
   
@@ -24,6 +26,9 @@ const StudDashboard = () => {
           <div className={s.todo}>
             <Todo/>
           </div>
+          <div>
+              <Dictionary/>
+            </div>
           <div className={s.scoreGraphs}>
               <ScoreGraphs />
           </div>
@@ -41,6 +46,11 @@ const StudDashboard = () => {
           <Schedule />
         </div>
         )}
+        {tabContent==="Profile"&&(
+                  <div >
+                    <Profile/>
+                  </div>
+                )}
         {tabContent==="Courses"&&(
           <div >
             <Courses/>

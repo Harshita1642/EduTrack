@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { UserData } from "../context/UserContext"
 import TutSideBar from "../components/TutSideBar"; 
 import Calendar from "../components/Calendar";
 import PomodoroTimer from "../components/PomodoroTimer";
 import Schedule from "../pages/Schedule";
 import Todo from "../components/Todo";
 import Stats from "../components/Stats"
+import Profile from "../pages/Profile";
 import AdminDashboard from "../components/Admin/AdminDashboard";
 import Dictionary from "../components/Dictionary"
 import c from '../Styles/TutDash.module.css'
@@ -50,6 +52,11 @@ const TutDashboard = () => {
         {tabContent==="Courses"&&(
           <div >
             <Courses/>
+          </div>
+        )}
+        {tabContent==="Profile"&&(
+          <div >
+            <Profile />
           </div>
         )}
         {tabContent==="UploadNew"&&(
