@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerUser } from "../../services/userAuth";
+import { userRegister } from "../../services/userAuth";
 import { toast } from "sonner";
 
 export default function Register() {
@@ -8,7 +8,7 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
-    role: "student", // Default role
+    role: "user", // Default role
   });
 
   const navigate = useNavigate();
@@ -16,7 +16,8 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await registerUser(formData);
+      const response = await userRegister(formData);
+      console.log(formData.role);
       toast.success(response.data.message);
       localStorage.setItem("activationToken", response.data.activationToken);
       navigate("/verify"); // Redirect to Verify OTP

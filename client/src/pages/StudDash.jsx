@@ -4,6 +4,9 @@ import Calendar from "../components/Calendar";
 import PomodoroTimer from "../components/PomodoroTimer";
 import Schedule from "../pages/Schedule";
 import Todo from "../components/Todo";
+import ScoreGraphs from "../components/ScoreGraphs";
+import s from '../Styles/StudDash.module.css';
+import TakeABreak from "../components/TakeABreak";
 
 const StudDashboard = () => {
   const [tabContent, setTabContent] = useState('StudDashboard');
@@ -13,15 +16,20 @@ const StudDashboard = () => {
       <StudSideBar setTabContent={setTabContent}/>
       <div >
         {tabContent === "StudDashboard" && (
-          <div >
-            <div >
-              <Calendar />
-            </div>
-            <div >
-            <Todo/>
-            </div>
-            
+        <div className={s.container}>
+          <div className={s.calendar}>
+            <Calendar />
           </div>
+          <div className={s.todo}>
+            <Todo/>
+          </div>
+          <div className={s.scoreGraphs}>
+              <ScoreGraphs />
+          </div>
+          <div className={s.takeABreak}>
+              <TakeABreak />
+          </div>
+        </div>
         )}
         {tabContent === "timer" && (
           <div className="flex-1">
@@ -39,4 +47,3 @@ const StudDashboard = () => {
 };
 
 export default StudDashboard;
-

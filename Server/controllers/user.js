@@ -5,8 +5,13 @@ import sendMail, { sendForgotMail } from "../middlewares/sendMail.js";
 import TryCatch from "../middlewares/TC.js";
 
 export const register = TryCatch(async (req, res) => {
-  const { email, name, password } = req.body;
-
+  const { email, name, password,role } = req.body;
+  console.log(role);
+  let dbRole;
+  if(role === 'Student')
+      dbRole = 'user';
+  else  dbRole = 'teacher'
+  console.log(dbRole);
   let user = await User.findOne({ email });
 
   if (user)
@@ -20,6 +25,7 @@ export const register = TryCatch(async (req, res) => {
     name,
     email,
     password: hashPassword,
+    role:dbRole
   };
 
   const otp = Math.floor(Math.random() * 1000000);
@@ -67,6 +73,7 @@ export const verifyUser = TryCatch(async (req, res) => {
     name: verify.user.name,
     email: verify.user.email,
     password: verify.user.password,
+    role : verify.user.role
   });
 
   res.json({
@@ -130,6 +137,7 @@ export const forgotPassword = TryCatch(async (req, res) => {
 
   res.json({
     message: "Reset Password Link is send to you mail",
+    token
   });
 });
 

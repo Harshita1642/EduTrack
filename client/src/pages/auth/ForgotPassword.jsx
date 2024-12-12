@@ -24,7 +24,7 @@ export default function ForgotPassword() {
             style={{ fontFamily: "'Playfair Display', serif" }}>
           Forgot Password
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={(e)=>handleSubmit(e)} className="space-y-6">
           <div>
             <label
               htmlFor="email"

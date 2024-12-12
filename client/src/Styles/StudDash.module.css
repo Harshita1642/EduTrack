@@ -1,0 +1,43 @@
+.container {
+    display: flex; 
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    background-color: #d8c0f7;
+    transform: translateX(-20px);
+    overflow-x: hidden;
+  }
+.calendar{
+    position: absolute;
+    top:55px;
+    left:970px
+}
+.todo{
+    position: absolute;
+    top:360px;
+    left:970px;
+    transform: scale(1, 0.8);  
+    transform-origin: top;    
+}
+.scoreGraphs {
+    position: absolute;
+  top: 180px;
+  left: 50px;
+  width: 450px;  /* Increased width */
+  height: 320px; /* Increased height */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Slightly increased padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .takeABreak {
+    position: absolute;
+    top: 660px;
+    left: 970px;
+    transform: scale(1, 0.8);
+    transform-origin: top;
+  }
