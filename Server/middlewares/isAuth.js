@@ -6,7 +6,7 @@ export const isAuth = async (req, res, next) => {
     const token = req.headers.token;
     
     if (!token)
-      return res.status(401).json({
+      return res.status(403).json({
         message: "Please Login",
       });
       

@@ -90,9 +90,9 @@ export const UserContextProvider = ({ children }) => {
     }
   }
 
-  // useEffect(() => {
-  //   fetchUser();
-  // }, []);
+  useEffect(() => {
+    fetchUser();
+  }, []);
   return (
     <UserContext.Provider
       value={{
