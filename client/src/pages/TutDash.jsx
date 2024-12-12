@@ -5,6 +5,7 @@ import PomodoroTimer from "../components/PomodoroTimer";
 import Schedule from "../pages/Schedule";
 import Todo from "../components/Todo";
 import Stats from "../components/Stats"
+import AdminDashboard from "../components/Admin/AdminDashboard";
 import Dictionary from "../components/Dictionary"
 import c from '../Styles/TutDash.module.css'
 const TutDashboard = () => {
@@ -28,10 +29,10 @@ const TutDashboard = () => {
             <div>
               <Dictionary/>
             </div>
-            <div style={{position:'absolute',top:'100px',left:'200px'}}>
-              <h1>Hi</h1>
+            <div className={c.AdminDashboard}>
+              <AdminDashboard/>
             </div>
-
+            
           </div>
         )}
         {tabContent === "timer" && (

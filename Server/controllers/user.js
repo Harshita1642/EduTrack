@@ -8,7 +8,7 @@ export const register = TryCatch(async (req, res) => {
   const { email, name, password,role } = req.body;
   console.log(role);
   let dbRole;
-  if(role === 'Student')
+  if(role === 'user')
       dbRole = 'user';
   else  dbRole = 'teacher'
   console.log(dbRole);

@@ -17,12 +17,7 @@ export default function VerifyUser() {
       console.log(formData);
       const response = await verifyUser({otp : Number(formData.otp), activationToken :formData.activationToken});
       toast.success(response.data.message);
-      if(response.data.role === 'student'){
-        navigate("/studDash")
-      }
-      else{
-        navigate("/tutDash")
-      }
+      navigate("/login");
       localStorage.removeItem("activationToken"); // Clear token after success
     } catch (error) {
       toast.error(error.response?.data?.message || "Invalid OTP or token expired!");

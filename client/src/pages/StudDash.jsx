@@ -36,9 +36,9 @@ const StudDashboard = () => {
           <div className="flex-1">
           <PomodoroTimer />
         </div>
-        )}{tabContent === "timer" && (
+        )}{tabContent === "Schedule" && (
           <div className="flex-1">
-          <PomodoroTimer />
+          <Schedule />
         </div>
         )}
         {tabContent==="Courses"&&(

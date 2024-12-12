@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import {toast} from "sonner";
-import { UserLogin,userRegister, verifyUser } from "../services/userAuth.js";
+import { getMyProfile, UserLogin,userRegister} from "../services/userAuth.js";
 
 const UserContext = createContext();
 
@@ -11,8 +11,8 @@ export const UserContextProvider = ({ children }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  async function loginUser(email, password, navigate) {
-    // async function loginUser(email, password, navigate, fetchMyCourse) {
+  async function loginUser(email, password, navigate,fetchMyCourse) {
+    
     setBtnLoading(true);
     try {
       const { data } = await UserLogin( {
@@ -25,8 +25,12 @@ export const UserContextProvider = ({ children }) => {
       setUser(data.user);
       setIsAuth(true);
       setBtnLoading(false);
-      // navigate("/");
-      // fetchMyCourse();
+      if(data.user.role==='user')
+        navigate("/StudDash");
+      else{
+        navigate("/tutDash");
+      }
+      fetchMyCourse();
     } catch (error) {
       setBtnLoading(false);
       setIsAuth(false);
@@ -74,7 +78,7 @@ export const UserContextProvider = ({ children }) => {
 
   async function fetchUser() {
     try {
-      const { data } = await verifyUser( {
+      const { data } = await getMyProfile( {
         headers: {
           token: localStorage.getItem("token"),
         },
