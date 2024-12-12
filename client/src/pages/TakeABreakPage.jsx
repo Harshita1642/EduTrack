@@ -1,5 +1,4 @@
 import React from "react";
-import StudSideBar from "../components/StudSideBar";
 import s from '../Styles/TakeABreakPage.module.css';
 
 const TakeABreakPage = () => {
@@ -26,7 +25,6 @@ const TakeABreakPage = () => {
 
   return (
     <div className="flex w-full h-screen" style={{ backgroundColor: "#d8c0f7" }}>
-      <StudSideBar />
       <div className="flex-1">
         <div className={s.pageContainer}>
           <h1 className={s.pageTitle}>Time to Recharge!</h1>

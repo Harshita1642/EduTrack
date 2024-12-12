@@ -11,6 +11,7 @@ import VerifyUser from "./pages/auth/VerifyUser";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
 import TakeABreakPage from "./pages/TakeABreakPage";
+import HomePage from './pages/HomePage';
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
     <SidebarProvider>
       <Router>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/tutDash" element={<TutDashboard />} />
           <Route path="/StudDash" element={<StudDashboard />} />
           <Route path="/login" element={<Login />} />

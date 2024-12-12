@@ -7,7 +7,8 @@ import Todo from "../components/Todo";
 import ScoreGraphs from "../components/ScoreGraphs";
 import s from '../Styles/StudDash.module.css';
 import TakeABreak from "../components/TakeABreak";
-
+import TakeABreakPage from "../pages/TakeABreakPage";
+import Courses from "@/components/Courses/Courses";
 const StudDashboard = () => {
   const [tabContent, setTabContent] = useState('StudDashboard');
   
@@ -35,10 +36,19 @@ const StudDashboard = () => {
           <div className="flex-1">
           <PomodoroTimer />
         </div>
+        )}{tabContent === "timer" && (
+          <div className="flex-1">
+          <PomodoroTimer />
+        </div>
         )}
-        {tabContent==="Schedule"&&(
+        {tabContent==="Courses"&&(
           <div >
-            <Schedule/>
+            <Courses/>
+          </div>
+        )}
+        {tabContent==="TakeABreakPage"&&(
+          <div >
+          <TakeABreakPage/>
           </div>
         )}
       </div>
