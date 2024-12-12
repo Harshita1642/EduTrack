@@ -78,8 +78,7 @@ export const UserContextProvider = ({ children }) => {
 
   async function fetchUser() {
     try {
-      console.log("Fetch user called")
-      console.log(localStorage.getItem("token")+"token from fetch user");
+      
       const { data } = await getMyProfile(localStorage.getItem("token"));
    
       setIsAuth(true);

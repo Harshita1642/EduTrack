@@ -36,3 +36,19 @@ export const isAdmin = (req, res, next) => {
     });
   }
 };
+
+export const isTeacher = (req, res, next) => {
+  try {
+    console.log(req.user.role)
+    if (req.user.role !== "teacher")
+      return res.status(403).json({
+        message: "You are not teacher",
+      });
+
+    next();
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};

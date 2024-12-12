@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { createCourse } from '../../services/courseRoutes';
 
 const categories = [
   "Web Development",
@@ -65,12 +66,21 @@ const AdminCourses = ({ user }) => {
     myForm.append("file", image);
     
     try {
-      const { data } = await axios.post(`${API}/course/new`, myForm, {
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      });
+//       console.log("Form Data ");
+//       console.log("Title:", title);
+// console.log("Description:", description);
+// console.log("Category:", category);
+// console.log("Price:", price);
+// console.log("Created By:", createdBy);
+// console.log("Duration:", duration);
+// console.log("Image File:", image);
 
+const { data } = await API.post(`/course/new`, myForm, {
+  headers: {
+    token: localStorage.getItem("token"),
+  },
+});
+      
       toast.success(data.message);
       setBtnLoading(false);
       await fetchCourses();
