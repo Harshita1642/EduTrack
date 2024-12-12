@@ -5,9 +5,10 @@ import PomodoroTimer from "../components/PomodoroTimer";
 import Schedule from "../pages/Schedule";
 import Todo from "../components/Todo";
 import Stats from "../components/Stats"
-import AdminDashboard from "../components/Admin/AdminDashboard";
+// import AdminDashboard from "../components/Admin/AdminDashboard";
 import Dictionary from "../components/Dictionary"
 import c from '../Styles/TutDash.module.css'
+import Courses from "@/components/Courses/Courses";
 const TutDashboard = () => {
   const [tabContent, setTabContent] = useState('TutDashboard');
   
@@ -29,9 +30,9 @@ const TutDashboard = () => {
             <div>
               <Dictionary/>
             </div>
-            <div className={c.AdminDashboard}>
+            {/* <div className={c.AdminDashboard}>
               <AdminDashboard/>
-            </div>
+            </div> */}
             
           </div>
         )}
@@ -43,6 +44,11 @@ const TutDashboard = () => {
         {tabContent==="schedule"&&(
           <div >
             <Schedule/>
+          </div>
+        )}
+        {tabContent==="Courses"&&(
+          <div >
+            <Courses/>
           </div>
         )}
       </div>

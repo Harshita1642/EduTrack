@@ -1,23 +1,24 @@
-
+import API from "@/services/api";
 import { UserData } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { CourseData } from "../../context/CourseContext";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Trash2 } from "lucide-react";
-import { User, Clock, IndianRupee } from "lucide-react";
-// import { Dialog } from "../ui/dialog"; // Adjust the path as necessary
+// import { User, Clock, IndianRupee } from "lucide-react";
+// import { Dialog } from "@/components/ui/dialog";
 import { LogIn } from "lucide-react";
 
-const server = "http://localhost:5000"
+
+
 const CourseCard = ({ course }) => {
   const navigate = useNavigate();
   const { user, isAuth } = UserData();
   const { fetchCourses } = CourseData();
-
+  console.log(UserData);
   const deleteHandler = async (id) => {
     console.log("jngjrn")
     try {
@@ -32,7 +33,7 @@ const CourseCard = ({ course }) => {
 
       // if (confirmed) {
         console.log("fonfirgr")
-        const { data } = await axios.delete(`${server}/api/course/${id}`, {
+        const { data } = await axios.delete(`${API}/api/course/${id}`, {
           headers: {
             token: localStorage.getItem("token"),
           },
@@ -100,7 +101,7 @@ const CourseCard = ({ course }) => {
             <div className="mt-auto space-x-1 space-y-2">
               {isAuth ? (
                 <>
-                  {user && user.role !== "admin" ? (
+                  {user && user.role !== "user" ? (
                     <>
                       {user.subscription.includes(course._id) ? (
                         <Button
@@ -140,7 +141,7 @@ const CourseCard = ({ course }) => {
                 </Button>
               )}
 
-              {user && user.role === "admin" && (
+              {user && user.role === "teacher" && (
                 <Button
                   variant="destructive"
                   className="mt-2"

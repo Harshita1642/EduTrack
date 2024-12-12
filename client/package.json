@@ -22,7 +22,11 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^2.30.0",
+<<<<<<< HEAD
     "framer-motion": "^11.14.0",
+=======
+    "framer-motion": "^11.14.1",
+>>>>>>> c3dbd8cf19e25fdaf5f090f7f4f7e0e7293eca58
     "lucide-react": "^0.460.0",
     "next-themes": "^0.4.3",
     "react": "^18.3.1",

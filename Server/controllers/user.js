@@ -9,7 +9,7 @@ export const register = TryCatch(async (req, res) => {
   console.log(role);
   let dbRole;
   if(role !== 'user')
-      dbRole = 'teacher'
+    dbRole = 'teacher';
   console.log(dbRole);
   let user = await User.findOne({ email });
 

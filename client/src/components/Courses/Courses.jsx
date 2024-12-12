@@ -1,6 +1,6 @@
 import React from "react";
 import { CourseData } from "../../context/CourseContext";
-import CourseCard from "../Courses/CourseCard";
+import CourseCard from "../../components/Courses/CourseCard";
 import { motion } from "framer-motion";
 
 
