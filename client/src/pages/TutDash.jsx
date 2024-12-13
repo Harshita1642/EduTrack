@@ -12,6 +12,7 @@ import Dictionary from "../components/Dictionary"
 import c from '../Styles/TutDash.module.css'
 import Courses from "@/components/Courses/Courses";
 import AdminCourses from "@/components/Admin/AdminCourses";
+import AddQuiz from "./AddQuiz";
 const TutDashboard = () => {
   const [tabContent, setTabContent] = useState('TutDashboard');
   
@@ -62,6 +63,11 @@ const TutDashboard = () => {
         {tabContent==="UploadNew"&&(
           <div >
             <AdminCourses/>
+          </div>
+        )}
+        {tabContent==="AddQuiz"&&(
+          <div >
+            <AddQuiz/>
           </div>
         )}
       </div>

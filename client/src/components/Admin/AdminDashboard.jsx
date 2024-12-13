@@ -13,7 +13,7 @@ export default function AdminDashboard({ user }) {
   })
 
   useEffect(() => {
-    if (user && user.role !== "admin") {
+    if (!user || user.role !== "teacher") {
       navigate("/")
     } else {
       fetchStats()
