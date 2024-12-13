@@ -13,9 +13,13 @@ import c from '../Styles/TutDash.module.css'
 import Courses from "@/components/Courses/Courses";
 import AdminCourses from "@/components/Admin/AdminCourses";
 import AddQuiz from "./AddQuiz";
+import Lecture from "../components/Courses/Lecture"
+import { useLocation } from 'react-router-dom';
+
 const TutDashboard = () => {
   const [tabContent, setTabContent] = useState('TutDashboard');
-  
+  const {user}=UserData();
+
   return (
     <div className="flex">
       <TutSideBar setTabContent={setTabContent}/>
@@ -52,7 +56,7 @@ const TutDashboard = () => {
         )}
         {tabContent==="Courses"&&(
           <div >
-            <Courses/>
+            <Courses setTabContent={setTabContent}/>
           </div>
         )}
         {tabContent==="Profile"&&(
@@ -70,6 +74,14 @@ const TutDashboard = () => {
             <AddQuiz/>
           </div>
         )}
+        {tabContent === "Lecture" && (
+          <div>
+            {/* Use useLocation to retrieve the passed courseId */}
+            <Lecture user={user} courseId={useLocation().state?.courseId} />
+            
+          </div>
+        )}
+
       </div>
     </div>
   );

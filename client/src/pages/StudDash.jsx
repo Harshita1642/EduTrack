@@ -56,6 +56,11 @@ const StudDashboard = () => {
             <Courses/>
           </div>
         )}
+         {tabContent==="Lecture"&&(
+          <div >
+            <Lecture user={ user }/>
+          </div>
+        )}
         {tabContent==="TakeABreakPage"&&(
           <div >
           <TakeABreakPage/>

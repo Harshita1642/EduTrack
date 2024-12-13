@@ -22,9 +22,6 @@ import c from "../Styles/TutSideBar.module.css";
 
 const TutSideBar = ({setTabContent}) => {
   const navigate=useNavigate();
-  const handleNavigation = () => {
-    navigate('/TutSchedule'); 
-  };
   const navigateToOtherComponent = (component) => { setTabContent(component); };
 
   const handleLogout = (e)=>{
