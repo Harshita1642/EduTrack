@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 const Courses = () => {
   const { courses } = CourseData();
+  console.log(courses);
   return (
     <div className="container mx-auto px-4 py-12">
       <motion.div
