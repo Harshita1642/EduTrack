@@ -14,6 +14,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 const Lecture = ({ user, courseId }) => {
   const location = useLocation();
   
+
   const [lectures, setLectures] = useState([]);
   const [lecture, setLecture] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,7 @@ const Lecture = ({ user, courseId }) => {
   useEffect(() => {
     if (user?.role !== 'teacher') {
       console.log(user.role);
-      if(!user?.subscription.includes(params.id) ){
+      if(!user?.subscription.includes(localStorage.getItem('courseId')) ){
         console.log("chla")
         navigate("/");
       } 
@@ -43,7 +44,7 @@ const Lecture = ({ user, courseId }) => {
 
   async function fetchLectures() {
     try {
-      const { data } = await API.get(`/lectures/${params.id}`, {
+      const { data } = await API.get(`/lectures/${localStorage.getItem('courseId')}`, {
         headers: { token: localStorage.getItem("token") },
       });      
       setLectures(data.lectures);
@@ -97,8 +98,8 @@ const Lecture = ({ user, courseId }) => {
       formData.append("file", video);
 
       // Send the form data directly to your backend
-      const { data } = await axios.post(
-        `${API}/course/${params.id}`,
+      const { data } = await API.post(
+        `/course/${localStorage.getItem('courseId')}`,
         formData,
         {
           headers: {

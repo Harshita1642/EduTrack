@@ -76,8 +76,8 @@ const TutDashboard = () => {
         )}
         {tabContent === "Lecture" && (
           <div>
-           
-            <Lecture user={user} courseId={useLocation().state?.courseId} />
+            
+            <Lecture user={user} />
             
           </div>
         )}
