@@ -4,8 +4,9 @@ import CourseCard from "../../components/Courses/CourseCard";
 import { motion } from "framer-motion";
 
 
-const Courses = () => {
+const Courses = ({setTabContent}) => {
   const { courses } = CourseData();
+  console.log(courses);
   return (
     <div className="container mx-auto px-4 py-12">
       <motion.div
@@ -20,7 +21,7 @@ const Courses = () => {
         {courses && courses.length > 0 ? (
           <div className="flex flex-col space-y-8">
             {courses.map((course) => (
-              <CourseCard key={course._id} course={course} />
+              <CourseCard key={course._id} course={course} setTabContent={setTabContent}/>
             ))}
           </div>
         ) : (

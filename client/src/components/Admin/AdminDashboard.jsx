@@ -13,7 +13,7 @@ export default function AdminDashboard({ user }) {
   })
 
   useEffect(() => {
-    if (user && user.role !== "admin") {
+    if (user && user.role !== "teacher") {
       navigate("/")
     } else {
       fetchStats()
@@ -22,7 +22,7 @@ export default function AdminDashboard({ user }) {
 
   async function fetchStats() {
     try {
-      const { data } = await axios.get(`${API}/stats`, {
+      const { data } = await API.get(`/stats`, {
         headers: {
           token: localStorage.getItem("token"),
         },
@@ -36,7 +36,7 @@ export default function AdminDashboard({ user }) {
   return (
   
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
+        <h1 className="text-3xl font-bold mb-6">Instructor Dashboard</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
             title="Total Courses"

@@ -8,30 +8,20 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Trash2 } from "lucide-react";
-// import { User, Clock, IndianRupee } from "lucide-react";
-// import { Dialog } from "@/components/ui/dialog";
 import { LogIn } from "lucide-react";
 
 
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course ,setTabContent}) => {
   const navigate = useNavigate();
   const { user, isAuth } = UserData();
   const { fetchCourses } = CourseData();
+  const navigateToOtherComponent = (component) => { setTabContent(component); };
   console.log(UserData);
+  console.log(isAuth)
   const deleteHandler = async (id) => {
     console.log("jngjrn")
     try {
-      // const confirmed = await new Promise((resolve) => {
-      //   Dialog.confirm({
-      //     title: "Delete Course",
-      //     content: "Are you sure you want to delete this course?",
-      //     onConfirm: () => resolve(true),
-      //     onCancel: () => resolve(false),
-      //   });
-      // });
-
-      // if (confirmed) {
         console.log("fonfirgr")
         const { data } = await axios.delete(`${API}/api/course/${id}`, {
           headers: {
@@ -99,58 +89,66 @@ const CourseCard = ({ course }) => {
             
             {/* Existing button logic */}
             <div className="mt-auto space-x-1 space-y-2">
-              {isAuth ? (
+            {isAuth ? (
+            <>
+              {user && user.role !== "teacher" ? (
                 <>
-                  {user && user.role !== "user" ? (
-                    <>
-                      {user.subscription.includes(course._id) ? (
-                        <Button
-                          className="bg-[#8836d9] hover:bg-purple-700"
-                          onClick={() => navigate(`/course/study/${course._id}`)}
-                        >
-                          <BookOpen className="mr-2 h-4 w-4" />
-                          Study Now
-                        </Button>
-                      ) : (
-                        <Button
-                          className="bg-[#8836d9] hover:bg-purple-700"
-                          onClick={() => navigate(`/course/${course._id}`)}
-                        >
-                          <ArrowRight className="mr-2 h-4 w-4" />
-                          Get Started
-                        </Button>
-                      )}
-                    </>
-                  ) : (
+                  {user.subscription.includes(course._id) ? (
                     <Button
-                      className="bg-purple-600 hover:bg-purple-700"
-                      onClick={() => navigate(`/course/study/${course._id}`)}
+                      className="w-full"
+                      
+                      onClick={() => {
+                        console.log('Course ID:', course._id);
+                        
+                        navigateToOtherComponent('Lecture')}}
                     >
                       <BookOpen className="mr-2 h-4 w-4" />
                       Study Now
+                    </Button>
+                  ) : (
+                    <Button
+                      className="w-full"
+                      // onClick={() => navigate(/course/${course._id})}
+                    >
+                      <ArrowRight className="mr-2 h-4 w-4" />
+                      Get Started
                     </Button>
                   )}
                 </>
               ) : (
                 <Button
-                  className="bg-purple-600 hover:bg-purple-700"
-                  onClick={() => navigate("/login")}
+                  className="w-full"
+                  onClick={() => {
+                    console.log('Course ID:', course._id);
+                    localStorage.setItem('courseId', course._id);
+                    console.log('Stored Course ID in localStorage:', localStorage.getItem('courseId'));
+                    navigateToOtherComponent('Lecture')}}
                 >
-                  <LogIn className="mr-2 h-4 w-4" />
-                  Get Started
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Study Now
                 </Button>
               )}
+            </>
+          ) : (
+            <Button
+              className="w-full"
+              onClick={() => navigate("/login")}
+            >
+              <LogIn className="mr-2 h-4 w-4" />
+              Get Started
+            </Button>
+          )}
 
-              {user && user.role === "teacher" && (
-                <Button
-                  variant="destructive"
-                  className="mt-2"
-                  onClick={() => deleteHandler(course._id)}
-                >
-                  <Trash2 className="mr-2 h-4 w-4" />
-                  Delete Course
-                </Button>
-              )}
+          {user && user.role === "teacher" && (
+            <Button
+              variant="destructive"
+              className="w-full"
+              onClick={() => deleteHandler(course._id)}
+            >
+              <Trash2 className="mr-2 h-4 w-4" />
+              Delete Course
+            </Button>
+          )}
             </div>
           </div>
         </div>
@@ -160,3 +158,94 @@ const CourseCard = ({ course }) => {
 };
 
 export default CourseCard;
+
+
+// {isAuth ? (
+//   <>
+//     {user && user.role !== "user" ? (
+//       <>
+//         {user.subscription.includes(course._id) ? (
+//           <Button
+//             className="bg-[#8836d9] hover:bg-purple-700"
+//             onClick={() => navigate(`/course/study/${course._id}`)}
+//           >
+//             <BookOpen className="mr-2 h-4 w-4" />
+//             Study Now
+//           </Button>
+//         ) : (
+//           <Button
+//             className="bg-[#8836d9] hover:bg-purple-700"
+//             onClick={() => navigateToOtherComponent('Lecture')}
+//           >
+//             <ArrowRight className="mr-2 h-4 w-4" />
+//             Get Started
+//           </Button>
+//         )}
+//       </>
+//     ) : (
+//       <Button
+//         className="bg-purple-600 hover:bg-purple-700"
+//         onClick={() => navigate(`/course/study/${course._id}`)}
+//       >
+//         <BookOpen className="mr-2 h-4 w-4" />
+//         Study Now
+//       </Button>
+//     )}
+//   </>
+// ) : (
+//   <Button
+//     className="bg-purple-600 hover:bg-purple-700"
+//     onClick={() => navigateToOtherComponent('Lecture')}
+//   >
+//     {/* <LogIn className="mr-2 h-4 w-4" /> */}
+//     Get Started
+//   </Button>
+// )}
+
+// {user && user.role === "teacher" && (
+//   <Button
+//     variant="destructive"
+//     className="mt-2"
+//     onClick={() => deleteHandler(course._id)}
+//   >
+//     <Trash2 className="mr-2 h-4 w-4" />
+//     Delete Course
+//   </Button>
+// )}
+
+// <motion.div
+//       initial={{ opacity: 0, scale: 0.95 }}
+//       animate={{ opacity: 1, scale: 1 }}
+//       transition={{ duration: 0.3 }}
+//     >
+//       <Card className="overflow-hidden h-full">
+//         <div className="aspect-video relative overflow-hidden">
+//           <img
+//             src={${course.image}}
+//             alt={course.title}
+//             className="object-cover w-full h-full transition-transform hover:scale-105 duration-300"
+//           />
+//         </div>
+//         <CardContent className="p-6">
+//           <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
+//           <div className="space-y-2 text-sm text-muted-foreground">
+//             <div className="flex items-center gap-2">
+//               <User className="h-4 w-4" />
+//               <span>Instructor: {course.createdBy}</span>
+//             </div>
+//             <div className="flex items-center gap-2">
+//               <Clock className="h-4 w-4" />
+//               <span>Duration: {course.duration} weeks</span>
+//             </div>
+//             <div className="flex items-center gap-2">
+//               <IndianRupee className="h-4 w-4" />
+//               <span>Price: ₹{course.price}</span>
+//             </div>
+//           </div>
+//         </CardContent>
+//         <CardFooter className="p-6 pt-0 flex flex-col gap-3">
+          
+//         </CardFooter>
+//       </Card>
+//     </motion.div>
+//   );

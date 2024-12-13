@@ -27,7 +27,7 @@ export const fetchLectures = TryCatch(async (req, res) => {
 
   const user = await User.findById(req.user._id);
 
-  if (user.role === "admin") {
+  if (user.role === "teacher") {
     return res.json({ lectures });
   }
 
@@ -44,7 +44,7 @@ export const fetchLecture = TryCatch(async (req, res) => {
 
   const user = await User.findById(req.user._id);
 
-  if (user.role === "admin") {
+  if (user.role === "teacher") {
     return res.json({ lecture });
   }
 
