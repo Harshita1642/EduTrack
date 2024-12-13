@@ -11,8 +11,7 @@ export const CourseContextProvider = ({ children }) => {
 
   async function fetchCourses() {
     try {
-      const { data } = await API.get("/courses/all")
-      console.log(data);
+      const { data } = await API.get(`/course/all`);
       setCourses(data.courses);
       
     } catch (error) {
@@ -22,7 +21,7 @@ export const CourseContextProvider = ({ children }) => {
 
   async function fetchCourse(id) {
     try {
-      const { data } = await axios.get(`${API}/course/${id}`);
+      const { data } = await API.get(`/course/${id}`);
       setCourse(data.course);
     } catch (error) {
       console.log(error);
@@ -31,7 +30,7 @@ export const CourseContextProvider = ({ children }) => {
 
   async function fetchMyCourse() {
     try {
-      const { data } = await axios.get(`${API}/mycourse`, {
+      const { data } = await API.get(`/mycourse`, {
         headers: {
           token: localStorage.getItem("token"),
         },
