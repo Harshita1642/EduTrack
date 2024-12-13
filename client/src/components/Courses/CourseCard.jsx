@@ -100,7 +100,7 @@ const CourseCard = ({ course ,setTabContent}) => {
                       onClick={() => {
                         console.log('Course ID:', course._id);
                         
-                        navigateToOtherComponent('Lecture', { state: { courseId: course._id } })}}
+                        navigateToOtherComponent('Lecture')}}
                     >
                       <BookOpen className="mr-2 h-4 w-4" />
                       Study Now
@@ -120,7 +120,9 @@ const CourseCard = ({ course ,setTabContent}) => {
                   className="w-full"
                   onClick={() => {
                     console.log('Course ID:', course._id);
-                    navigateToOtherComponent('Lecture', { state: { courseId: course._id } })}}
+                    localStorage.setItem('courseId', course._id);
+                    console.log('Stored Course ID in localStorage:', localStorage.getItem('courseId'));
+                    navigateToOtherComponent('Lecture')}}
                 >
                   <BookOpen className="mr-2 h-4 w-4" />
                   Study Now
