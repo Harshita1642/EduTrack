@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Lecture = ({ user, courseId }) => {
-  const location = useLocation();
+
   
 
   const [lectures, setLectures] = useState([]);
@@ -128,7 +128,7 @@ const Lecture = ({ user, courseId }) => {
   const deleteHandler = async (id) => {
     if (confirm("Are you sure you want to delete this lecture?")) {
       try {
-        const { data } = await axios.delete(`${API}/lecture/${id}`, {
+        const { data } = await API.delete(`/lecture/${id}`, {
           headers: { token: localStorage.getItem("token") },
         });
         toast.success(data.message);
