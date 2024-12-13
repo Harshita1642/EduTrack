@@ -64,7 +64,7 @@ const AdminCourses = ({ user }) => {
     myForm.append("createdBy", createdBy);
     myForm.append("duration", duration);
     myForm.append("file", image);
-
+    
     try {
 //       console.log("Form Data ");
 //       console.log("Title:", title);

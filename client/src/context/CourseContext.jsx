@@ -13,6 +13,7 @@ export const CourseContextProvider = ({ children }) => {
     try {
       const { data } = await API.get(`/course/all`);
       setCourses(data.courses);
+      
     } catch (error) {
       console.log(error);
     }
