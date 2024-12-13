@@ -76,7 +76,7 @@ const TutDashboard = () => {
         )}
         {tabContent === "Lecture" && (
           <div>
-            {/* Use useLocation to retrieve the passed courseId */}
+           
             <Lecture user={user} courseId={useLocation().state?.courseId} />
             
           </div>
