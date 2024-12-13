@@ -4,6 +4,7 @@ import { SidebarProvider } from "./components/ui/sidebar";
 import TutDashboard from "./pages/TutDash";
 import StudDashboard from "./pages/StudDash";
 import Pomodoro from "./pages/Pomodoro";
+import { UserContextProvider } from './context/UserContext'; // Ensure this path is correct
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { Toaster } from "sonner";
@@ -13,10 +14,11 @@ import ResetPassword from "./pages/auth/ResetPassword";
 import TakeABreakPage from "./pages/TakeABreakPage";
 import HomePage from './pages/HomePage';
 
+
 const App = () => {
 
   return (
-    
+    <UserContextProvider>
     <SidebarProvider>
       <Router>
         <Routes>
@@ -29,10 +31,13 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/takeabreak" element={<TakeABreakPage />} />
+          
+
         </Routes>
       </Router>
       <Toaster />
     </SidebarProvider>
+    </UserContextProvider>
   );
 };
 

@@ -1,0 +1,85 @@
+/* Overall container styling */
+.quizContainer {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.quizContainer h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Description styling */
+.quizContainer p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Timer styling */
+.quizTimer {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #444;
+    text-align: center;
+}
+
+/* Question styling */
+.questions {
+    margin-top: 30px;
+}
+
+.questionItem {
+    margin-bottom: 20px;
+}
+
+.questionItem p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.questionItem ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.questionItem li {
+    font-size: 1rem;
+    color: #666;
+    margin: 8px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.questionItem li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Marks section styling */
+.quizMarks {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for the loading/error message */
+.loading,
+.error {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #f00;
+    margin-top: 20px;
+}
