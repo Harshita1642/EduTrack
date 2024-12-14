@@ -108,7 +108,7 @@ const CourseCard = ({ course ,setTabContent}) => {
                   ) : (
                     <Button
                       className="w-full"
-                      // onClick={() => navigate(/course/${course._id})}
+                      onClick={() => navigate(`/course/${course._id}`)}
                     >
                       <ArrowRight className="mr-2 h-4 w-4" />
                       Get Started
