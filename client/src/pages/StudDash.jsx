@@ -11,6 +11,8 @@ import TakeABreak from "../components/TakeABreak";
 import TakeABreakPage from "../pages/TakeABreakPage";
 import Courses from "@/components/Courses/Courses";
 import Dictionary from "@/components/Dictionary";
+import QuizPage from "./QuizPage";
+
 const StudDashboard = () => {
   const [tabContent, setTabContent] = useState('StudDashboard');
   
@@ -44,6 +46,11 @@ const StudDashboard = () => {
         )}{tabContent === "Schedule" && (
           <div className="flex-1">
           <Schedule />
+        </div>
+        )}
+        {tabContent === "QuizPage" && (
+          <div className="flex-1">
+          <QuizPage />
         </div>
         )}
         {tabContent==="Profile"&&(

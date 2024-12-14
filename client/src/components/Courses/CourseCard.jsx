@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Trash2 } from "lucide-react";
 import { LogIn } from "lucide-react";
-
+import styles from '../../Styles/Courses.module.css'; 
 
 
 const CourseCard = ({ course ,setTabContent}) => {
@@ -41,9 +41,10 @@ const CourseCard = ({ course ,setTabContent}) => {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.3 }}
+      className=" bg-lightgray w-full"
     >
-      <Card className="overflow-hidden w-full bg-gray-100">
-        <div className="flex p-4 gap-4">
+      <Card className="overflow-hidden w-full bg-lightgray">
+        <div className="flex p-4 gap-4 bg-gray-200 w-full max-w-full">
           {/* Left: Image */}
           <div className="w-32 h-26 flex-shrink-0">
             <img
@@ -87,7 +88,7 @@ const CourseCard = ({ course ,setTabContent}) => {
                 <>
                   {user.subscription.includes(course._id) ? (
                     <Button
-                      className="w-full"
+                      className="w-full bg-[#8836d9] hover:bg-purple-700"
                       
                       onClick={() => {
                         console.log('Course ID:', course._id);
@@ -99,7 +100,9 @@ const CourseCard = ({ course ,setTabContent}) => {
                     </Button>
                   ) : (
                     <Button
-                      className="w-full"
+                      
+                      onClick={() => navigate(`/course/${course._id}`)}
+                      className="w-full bg-[#8836d9] hover:bg-purple-700"
                       // onClick={() => navigate(/course/${course._id})}
                     >
                       <ArrowRight className="mr-2 h-4 w-4" />
@@ -109,7 +112,7 @@ const CourseCard = ({ course ,setTabContent}) => {
                 </>
               ) : (
                 <Button
-                  className="w-full"
+                  className="w-full bg-[#8836d9] hover:bg-purple-700"
                   onClick={() => {
                     console.log('Course ID:', course._id);
                     localStorage.setItem('courseId', course._id);
@@ -123,7 +126,7 @@ const CourseCard = ({ course ,setTabContent}) => {
             </>
           ) : (
             <Button
-              className="w-full"
+              className="w-full bg-[#8836d9] hover:bg-purple-700"
               onClick={() => navigate("/login")}
             >
               <LogIn className="mr-2 h-4 w-4" />
@@ -134,7 +137,7 @@ const CourseCard = ({ course ,setTabContent}) => {
           {user && user.role === "teacher" && (
             <Button
               variant="destructive"
-              className="w-full"
+              className="w-full bg-red-500 hover:bg-red-700"
               onClick={() => deleteHandler(course._id)}
             >
               <Trash2 className="mr-2 h-4 w-4" />

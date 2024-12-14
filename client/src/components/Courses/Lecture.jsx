@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import s from "../../Styles/Lecture.module.css"
 
 const Lecture = ({ user, courseId }) => {
 
@@ -128,7 +129,7 @@ const Lecture = ({ user, courseId }) => {
   const deleteHandler = async (id) => {
     if (confirm("Are you sure you want to delete this lecture?")) {
       try {
-        const { data } = await axios.delete(`${API}/lecture/${id}`, {
+        const { data } = await API.delete(`/lecture/${id}`, {
           headers: { token: localStorage.getItem("token") },
         });
         toast.success(data.message);
@@ -150,18 +151,20 @@ const Lecture = ({ user, courseId }) => {
     }
   }
   return (
-    <div className="min-h-screen bg-[#d8c0f7]">
-      <div className="container mx-auto px-4 py-8">
+    <div className={s.background}>
+      <div className={s.container}>
         {loading ? (
           <Loading />
         ) : (
           <>
-            <Card className="mb-6 shadow-lg">
-              <CardHeader>
-                <CardTitle>Course Progress</CardTitle>
+            <Card className={s.card}>
+              <CardHeader className={s.cardHeader}>
+                <CardTitle className={s.cardTitle}>Course Progress</CardTitle>
               </CardHeader>
-              <CardContent>
-                <Progress value={progress} max={100} className="w-full" />
+              <CardContent className={s.cardContent}>
+                <div className={s.progress}>
+                  <div className={s.progressValue} style={{ width: `${progress}%` }} />
+                </div>
                 <p className="text-right">{progress}%</p>
               </CardContent>
             </Card>
@@ -171,14 +174,13 @@ const Lecture = ({ user, courseId }) => {
                 {lecLoading ? (
                   <Loading />
                 ) : (
-                  <Card className="shadow-lg">
-                    <CardContent className="p-0">
+                  <Card className={s.card}>
+                    <CardContent className={s.cardContent}>
                       {lecture?.video ? (
                         <video
                           src={lecture.video}
-                          width="100%"
+                          className={s.video}
                           controls
-                          className="rounded-t-lg"
                         ></video>
                       ) : (
                         <div className="p-6 text-center">
@@ -186,23 +188,23 @@ const Lecture = ({ user, courseId }) => {
                         </div>
                       )}
                     </CardContent>
-                    <CardHeader>
-                      <CardTitle>{lecture?.title}</CardTitle>
+                    <CardHeader className={s.cardHeader}>
+                      <CardTitle className={s.cardTitle}>{lecture?.title}</CardTitle>
                     </CardHeader>
                   </Card>
                 )}
               </div>
 
               <div>
-                <Card className="shadow-lg">
-                  <CardHeader>
-                    <CardTitle>Lecture List</CardTitle>
+                <Card className={s.card}>
+                  <CardHeader className={s.cardHeader}>
+                    <CardTitle className={s.cardTitle}>Lecture List</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className={s.cardContent}>
                     {user?.role === "teacher" && (
                       <Button 
                         onClick={() => setShow(!show)} 
-                        className="mb-4"
+                        className={s.button}
                       >
                         {show ? "Close" : "Add Lecture"}
                       </Button>
@@ -233,14 +235,14 @@ const Lecture = ({ user, courseId }) => {
                         <Button 
                           type="submit" 
                           disabled={btnLoading}
+                          className={s.button}
                         >
                           {btnLoading ? "Uploading..." : "Add"}
                         </Button>
                       </form>
                     )}
 
-                    <ScrollArea className="h-[300px]">
-                      
+                    <ScrollArea className={s.scrollArea}>
                       {lectures.map((lec, index) => (
                         <div key={lec._id} className="mb-2">
                           <div
@@ -259,7 +261,7 @@ const Lecture = ({ user, courseId }) => {
                               variant="destructive"
                               size="sm"
                               onClick={() => deleteHandler(lec._id)}
-                              className="mt-2"
+                              className={s.button}
                             >
                               Delete
                             </Button>

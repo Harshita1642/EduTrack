@@ -1,0 +1,77 @@
+/* client/src/components/Courses/Lecture.module.css */
+.background {
+    background-color: #d8c0f7; /* Set the background color */
+    min-height: 100vh;
+    min-width: 100vw;
+    margin-left: -150px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px; /* Limit the width for better readability */
+    padding: 2rem; /* Add padding */
+  }
+  
+  .card {
+    background-color: white; /* Card background */
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-bottom: 1.5rem; /* Space between cards */
+  }
+  
+  .cardHeader {
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0; /* Divider line */
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem; /* Title size */
+    color: #430d72; /* Primary color */
+  }
+  
+  .cardContent {
+    padding: 1rem;
+  }
+  
+  .video {
+    width: 100%; /* Full width for video */
+    border-radius: 0.5rem; /* Rounded corners */
+  }
+  
+  .button {
+    background-color: #430d72; /* Primary button color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    margin-top:10px;
+    margin-bottom: 10px;
+  }
+  
+  .button:hover {
+    background-color: #5a3e9d; /* Darker shade on hover */
+  }
+  
+  .scrollArea {
+    max-height: 300px; /* Limit height for scroll area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #e0e0e0; /* Border for scroll area */
+    border-radius: 0.5rem; /* Rounded corners */
+    padding: 0.5rem; /* Padding inside scroll area */
+  }
+  
+  .progress {
+    background-color: #e0e0e0; /* Background for progress bar */
+    border-radius: 0.5rem; /* Rounded corners */
+  }
+  
+  .progressValue {
+    height: 1rem; /* Height of the progress bar */
+     /* Progress color */
+    border-radius: 0.5rem; /* Rounded corners */
+  }
