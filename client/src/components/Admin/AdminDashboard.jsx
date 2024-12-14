@@ -34,28 +34,27 @@ export default function AdminDashboard({ user }) {
   }
 
   return (
-  
-      <div className="container mx-auto px-4 py-8">
+    <div className="mx-auto px-4 py-8 w-[800px] max-w-none">
         <h1 className="text-3xl font-bold mb-6">Instructor Dashboard</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
             title="Total Courses"
-            value={stats?.totalCourses||0}
+            value={stats?.totalCourses || 0}
             icon={<BookOpen className="h-8 w-8 text-purple-500" />}
           />
           <StatsCard
             title="Total Lectures"
-            value={stats?.totalLectures||0}
+            value={stats?.totalLectures || 0}
             icon={<Video className="h-8 w-8 text-purple-500" />}
           />
           <StatsCard
             title="Total Users"
-            value={stats?.totalUsers||0}
+            value={stats?.totalUsers || 0}
             icon={<Users className="h-8 w-8 text-purple-500" />}
           />
         </div>
       </div>
-
+   
   )
 }
 

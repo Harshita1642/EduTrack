@@ -26,5 +26,13 @@
 .AdminDashboard{
     position: absolute;
     left:75px;
-    top:200px
+    top:230px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+    background: #fff;
+    border-radius: 8px;
+}
+.statusBar{
+    position: absolute;
+    left:75px;
+    top:100px;
 }
