@@ -1,0 +1,27 @@
+/* client/src/Styles/Courses.module.css */
+.container {
+    display: flex; 
+    flex-direction: column; /* Stack items vertically */
+    height: 100vh; /* Full height of the viewport */
+    width: calc(100vw + 100px); /* Full width of the viewport plus 100px */
+    margin-left: -200px; /* Move the container 100px to the left */
+    background-color: #d8c0f7; /* Background color */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.content {
+    flex-grow: 1; /* Allow this div to grow and fill the space */
+    display: flex; 
+    flex-direction: column; /* Stack content vertically */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center; /* Center content horizontally */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.courseCard {
+    background-color: lightgray; /* Set background color for course cards */
+    width: 100%; /* Ensure course cards cover the entire width */
+    margin-bottom: 16px; /* Space between course cards */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 16px; /* Optional: padding inside course cards */
+}
