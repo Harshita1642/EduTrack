@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Lecture = ({ user, courseId }) => {
-  const location = useLocation();
+
   
 
   const [lectures, setLectures] = useState([]);
