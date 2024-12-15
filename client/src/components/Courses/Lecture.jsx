@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import s from "../../Styles/Lecture.module.css"
 
-const Lecture = ({ user, courseId }) => {
+const Lecture = ({ user }) => {
 
   
 
@@ -29,14 +29,10 @@ const Lecture = ({ user, courseId }) => {
   const [videoPrev, setVideoPrev] = useState("");
   const [btnLoading, setBtnLoading] = useState(false);
   const [progress, setProgress] = useState(0);
-
+  const cId = params.id || localStorage.getItem('courseId');
   useEffect(() => {
-    if (user?.role !== 'teacher') {
-      console.log(user.role);
-      if(!user?.subscription.includes(localStorage.getItem('courseId')) ){
-        console.log("chla")
-        navigate("/");
-      } 
+    if (user?.role !== "teacher" && !user?.subscription.includes(cId)) {
+      navigate("/");
     } else {
       fetchLectures();
       fetchProgress();
@@ -45,9 +41,10 @@ const Lecture = ({ user, courseId }) => {
 
   async function fetchLectures() {
     try {
-      const { data } = await API.get(`/lectures/${localStorage.getItem('courseId')}`, {
+      const { data } = await API.get(`/lectures/${cId}`, {
         headers: { token: localStorage.getItem("token") },
-      });      
+      });
+      
       setLectures(data.lectures);
     } catch (error) {
       console.error(error);
@@ -100,7 +97,7 @@ const Lecture = ({ user, courseId }) => {
 
       // Send the form data directly to your backend
       const { data } = await API.post(
-        `/course/${localStorage.getItem('courseId')}`,
+        `/course/${cId}`,
         formData,
         {
           headers: {
@@ -141,14 +138,14 @@ const Lecture = ({ user, courseId }) => {
   };
 
   async function fetchProgress() {
-    try {
-      const { data } = await axios.get(`${API}/user/progress/${params.id}`, {
-        headers: { token: localStorage.getItem("token") },
-      });
-      setProgress(data.courseProgressPercentage);
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   const { data } = await API.get(`/user/progress/${cId}`, {
+    //     headers: { token: localStorage.getItem("token") },
+    //   });
+    //   setProgress(data.courseProgressPercentage);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   }
   return (
     <div className={s.background}>
