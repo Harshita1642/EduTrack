@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 120px; 
+    min-height: 120px;
   }
   .gameTitle {
     font-size: 1.25rem;
@@ -53,7 +53,7 @@
   .playButton {
     background-color: #592e83; 
     color: white;
-    padding: 0.5rem ;
+    padding: 0.5rem;
     width: 120px;
     border-radius: 50px; 
     cursor: pointer;
