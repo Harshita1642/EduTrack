@@ -92,7 +92,7 @@ const CourseCard = ({ course ,setTabContent}) => {
                       
                       onClick={() => {
                         console.log('Course ID:', course._id);
-                        
+                        localStorage.setItem('courseId:', course._id)
                         navigateToOtherComponent('Lecture')}}
                     >
                       <BookOpen className="mr-2 h-4 w-4" />

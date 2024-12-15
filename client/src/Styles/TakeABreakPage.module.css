@@ -1,3 +1,8 @@
+.outercontainer{
+  background-color: #d8c0f7;
+  margin-left: -20px;
+}
+
 .pageContainer {
     padding: 2rem;
     min-height: 100vh;

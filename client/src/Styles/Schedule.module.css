@@ -2,8 +2,8 @@
 .container {
     display: flex; 
     height: 100vh; 
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    margin: 0;
+    padding: 0;
     width: 100vw;
     background-color: #d8c0f7;
     transform: translateX(-30px);
@@ -12,20 +12,19 @@
   }
   
   .mainContent {
-    width: 70%; /* Main content takes the remaining 80% of the width */
-    padding: 20px; /* Add padding for spacing */
+    width: 70%; 
+    padding: 20px;
     overflow-y: hidden; 
     box-sizing: border-box;
     transform: translateX(60px);
   }
   
-  /* Task form container */
   .taskForm {
     display: flex;
-    flex-direction: row; /* Change to row to display elements horizontally */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-    gap: 15px; /* Space between form elements */
-    max-width: 100%; /* Limit form width for better readability */
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+    max-width: 100%;
     margin-bottom: 20px;
     padding:20px;
     border-radius: 25px;
@@ -34,68 +33,68 @@
 
 
 .taskForm > div {
-    flex: 1; /* Allow elements to grow equally */
-    min-width: 150px; /* Minimum width for each input field */
+    flex: 1;
+    min-width: 150px; 
 }
   
 .inputContainer {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem; /* Increased space below the input for better readability */
+  margin-bottom: 0.5rem;   
 }
 
 .label {
-  font-size: 14px; /* Slightly larger font for better visibility */
-  font-weight: 600; /* Semi-bold for better emphasis */
+  font-size: 14px; 
+  font-weight: 600; 
   margin-bottom: 3px;
-  color: #444; /* Slightly softer dark gray */
+  color: #444; 
 }
 
 .inputField {
-  padding: 0.2rem; /* Increased padding for better click/tap experience */
-  border: 1px solid #ddd; /* Softer border */
-  border-radius: 6px; /* Slightly more rounded corners */
-  font-size: 16px; /* Better readability */
-  background-color: #f9f9f9; /* Subtle background color */
-  transition: border-color 0.3s ease, background-color 0.3s ease; /* Smooth transition for interactions */
+  padding: 0.2rem; 
+  border: 1px solid #ddd; 
+  border-radius: 6px; 
+  font-size: 16px; 
+  background-color: #f9f9f9; 
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
 .inputField:focus {
-  border-color: #6c3ba2; /* Richer purple for a friendly highlight */
+  border-color: #6c3ba2;
   outline: none;
-  background-color: #fff; /* Pure white for focus state */
-  box-shadow: 0 0 6px rgba(108, 59, 162, 0.3); /* Softer glow for a modern feel */
+  background-color: #fff; 
+  box-shadow: 0 0 6px rgba(108, 59, 162, 0.3);
 }
 
 .inputField::placeholder {
-  color: #bbb; /* Softer placeholder color */
-  font-style: normal; /* Removed italic for a cleaner look */
+  color: #bbb; 
+  font-style: normal; 
 }
 
 .inputField:hover {
-  background-color: #f3f3f3; /* Slight hover effect for a dynamic feel */
+  background-color: #f3f3f3; 
 }
 
 .inputField:disabled {
-  background-color: #e9ecef; /* Grayish background for disabled input */
-  cursor: not-allowed; /* Change cursor for disabled state */
-  color: #999; /* Text color for disabled state */
+  background-color: #e9ecef;
+  cursor: not-allowed; 
+  color: #999;
   border-color: #ccc;
 }
 
 
 .taskList {
   margin-top: 20px;
-  padding: 10px; /* Add padding for spacing */
-  border: 1px solid #e0e0e0; /* Light border around the task list */
-  border-radius: 10px; /* Rounded corners for the task list */
-  background-color: #f9f5ff; /* Subtle background for the list */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+  padding: 10px; 
+  border: 1px solid #e0e0e0; 
+  border-radius: 10px; 
+  background-color: #f9f5ff; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 .taskName{
-  font-weight: 600; /* Slightly bolder than normal */
-  font-size: 1.1rem; /* Optional: Increase font size for better visibility */
-  color: #333; /* Optional: Set color to dark gray for better contrast */
+  font-weight: 600; 
+  font-size: 1.1rem; 
+  color: #333; 
 }
 
 
@@ -103,28 +102,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px; /* Add more horizontal padding for better spacing */
+  padding: 15px 20px; 
   margin-bottom: 15px;
-  border-radius: 8px; /* Slightly larger rounding for modern look */
-  border: 1px solid #ddd; /* Soft border */
-  background-color: #ffffff; /* White background for clarity */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  border-radius: 8px; 
+  border: 1px solid #ddd; 
+  background-color: #ffffff;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .taskItem:hover {
-  background-color: #f3e9ff; /* Light purple on hover */
-  transform: translateY(-2px); /* Subtle lift effect */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Elevated shadow */
+  background-color: #f3e9ff; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
 .taskItem div {
-  max-width: 80%; /* Prevent content overlap */
-  word-wrap: break-word; /* Handle long text gracefully */
-  color: #333; /* Ensure good contrast for text */
-  font-size: 1rem; /* Standard font size */
+  max-width: 80%; 
+  word-wrap: break-word; 
+  color: #333; 
+  font-size: 1rem; 
 }
 
-/* Dropdown for status */
 .statusDropdown {
   padding: 8px 12px;
   border: 1px solid #ccc;
@@ -148,33 +146,33 @@
 }
 
 .statusPending {
-  color: #ffcc00; /* Yellow for Pending */
+  color: #ffcc00; 
 }
 
 .statusStarted {
-  color: #007bff; /* Blue for Started */
+  color: #007bff; 
 }
 
 .statusCompleted {
-  color: #28a745; /* Green for Completed */
+  color: #28a745; 
 }
 
 
 .Schedulebutton {
-  background-color: #592e83; /* Retain purple base color */
+  background-color: #592e83; 
   color: white;
-  border-radius: 10px; /* More rounded for a softer feel */
-  padding: 12px 24px; /* Increase padding for comfort */
-  border: none; /* Remove default border */
-  font-size: 1rem; /* Slightly larger text */
-  font-weight: bold; /* Bold for emphasis */
+  border-radius: 10px;
+  padding: 12px 24px; 
+  border: none; 
+  font-size: 1rem; 
+  font-weight: bold; 
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s; /* Add transform for click effect */
+  transition: background-color 0.3s ease, transform 0.2s; 
 }
 
 .Schedulebutton:hover {
-  background-color: #451f66; /* Slightly darker purple */
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  background-color: #451f66;
+  transform: scale(1.05); 
 }
 
 .Schedulebutton:active {
