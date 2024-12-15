@@ -93,12 +93,12 @@ export const deleteCourse = TryCatch(async (req, res) => {
 });
 
 export const getAllStats = TryCatch(async (req, res) => {
-  const totalCoures = (await Courses.find()).length;
+  const totalCourses = (await Courses.find()).length;
   const totalLectures = (await Lecture.find()).length;
   const totalUsers = (await User.find()).length;
 
   const stats = {
-    totalCoures,
+    totalCourses,
     totalLectures,
     totalUsers,
   };

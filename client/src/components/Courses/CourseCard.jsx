@@ -1,16 +1,14 @@
 import API from "@/services/api";
 import { UserData } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import axios from "axios";
+import {toast} from "sonner";
 import { CourseData } from "../../context/CourseContext";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ArrowRight, Trash2, Lectern } from "lucide-react";
 import { LogIn } from "lucide-react";
-import styles from '../../Styles/Courses.module.css'; 
-import Lecture from "./Lecture";
+
 
 
 const CourseCard = ({ course ,setTabContent}) => {
@@ -95,7 +93,7 @@ const CourseCard = ({ course ,setTabContent}) => {
                         console.log('Course ID:', course._id);
                         // navigate('/Lecture')
                         // navigateToOtherComponent(Lecture)
-                        navigate(`/course/study/${course._id}`)
+                        navigate(`/lectures/${course._id}`)
                       }}
                     >
                       <BookOpen className="mr-2 h-4 w-4" />
@@ -117,9 +115,9 @@ const CourseCard = ({ course ,setTabContent}) => {
                 <Button
                   className="w-full bg-[#8836d9] hover:bg-purple-700"
                   onClick={() => {
-                    console.log('Course ID:', course._id);
+                    
                     localStorage.setItem('courseId', course._id);
-                    console.log('Stored Course ID in localStorage:', localStorage.getItem('courseId'));
+                    
                     navigateToOtherComponent('Lecture')}}
                 >
                   <BookOpen className="mr-2 h-4 w-4" />

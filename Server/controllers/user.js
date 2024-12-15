@@ -81,6 +81,7 @@ export const verifyUser = TryCatch(async (req, res) => {
 });
 
 export const loginUser = TryCatch(async (req, res) => {
+  console.log("aaya");
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

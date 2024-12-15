@@ -6,7 +6,7 @@ import { CourseData } from "../../context/CourseContext";
 
 export default function Login() {
   const {loginUser} = UserData();
-  
+  const {fetchMyCourse} = CourseData();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const handleSubmit = async (e) => {

@@ -12,9 +12,9 @@ export const UserContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   async function loginUser(email, password, navigate,fetchMyCourse) {
-    
-    setBtnLoading(true);
+    // setBtnLoading(true);
     try {
+      console.log("aaya in login ");
       const { data } = await UserLogin( {
         email,
         password,

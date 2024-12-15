@@ -19,16 +19,18 @@ import {
 } from "@heroicons/react/24/outline"; 
 import { Link, useNavigate } from 'react-router-dom';
 import c from "../Styles/TutSideBar.module.css";
+import { UserData } from "@/context/UserContext";
 
 const TutSideBar = ({setTabContent}) => {
   const navigate=useNavigate();
   const navigateToOtherComponent = (component) => { setTabContent(component); };
-
+  const {isAuth,setIsAuth} = UserData();
   const handleLogout = (e)=>{
     e.preventDefault();
     console.log("chla");
     toast.success("Logged out");
     localStorage.removeItem("token");
+    setIsAuth(false);
     navigate("/login");
   }
 
