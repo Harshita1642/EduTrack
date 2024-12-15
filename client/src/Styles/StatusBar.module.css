@@ -1,0 +1,87 @@
+.statusBar {
+    background-color: #9b72cf;
+    border-radius: 20px;
+    padding: 20px; /* Increase padding for more space */
+    width: 100vw; /* Make the width 100% of the parent container or set to a fixed size */
+    max-width: 800px; /* Maximum width */
+    height: 100px; /* Increase the height */
+    display: flex; /* Use flex to align the contents */
+    align-items: center; /* Vertically center the items */
+    justify-content: space-between; /* Align the content to the left */
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    overflow: hidden; 
+  }
+  
+  .greeting {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 2rem;
+    display: flex; /* Use flex to align text and image inline */
+    align-items: center; /* Vertically align items */
+    flex-wrap: nowrap; /* Allow wrapping if the content is too long */
+    gap: 10px; /* Add space between text and image */
+    overflow: hidden; /* Ensure no content overflows */
+    max-width: calc(100% - 100px); 
+    white-space: nowrap;
+}
+  
+  .username {
+    color: #ffde59;
+    font-weight: bold;
+    /* Space between the name and the image */
+    font-size: 1.7rem; /* Default size for the name */
+    white-space: nowrap; /* Prevent name from breaking into a new line */
+    text-overflow: ellipsis; /* Add an ellipsis if the name overflows */
+    overflow: hidden; /* Prevent text from overflowing */
+    flex-grow: 1; /* Allow the username to take available space */
+  flex-shrink: 1;
+  }
+  
+  .profileImage {
+    width: 80px; /* Increase image size */
+    height: 80px;
+    border-radius: 50%; /* Make it circular */
+    position: absolute; /* Position the image absolutely within the parent container */
+    right: 20px;
+    top: 8px
+  }
+  
+  /* Responsive design */
+@media (max-width: 768px) {
+    .greeting {
+      font-size: 1.5rem; /* Smaller font size for mobile devices */
+    }
+  
+    .username {
+      font-size: 1.2rem; /* Adjust username size for smaller screens */
+    }
+  
+    .profileImage {
+      width: 60px; /* Smaller image size */
+      height: 60px;
+    }
+  
+    .statusBar {
+      height: auto; /* Allow the height to adjust based on content */
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .greeting {
+      font-size: 1.2rem; /* Further reduce font size on very small screens */
+    }
+  
+    .username {
+      font-size: 1rem; /* Further reduce the username size */
+    }
+  
+    .profileImage {
+      width: 50px; /* Even smaller image size */
+      height: 50px;
+    }
+  
+    .statusBar {
+      padding: 10px; /* Reduce padding for very small screens */
+    }
+  }

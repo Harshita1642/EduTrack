@@ -100,6 +100,8 @@ const CourseCard = ({ course ,setTabContent}) => {
                     </Button>
                   ) : (
                     <Button
+                      
+                      onClick={() => navigate(`/course/${course._id}`)}
                       className="w-full bg-[#8836d9] hover:bg-purple-700"
                       // onClick={() => navigate(/course/${course._id})}
                     >

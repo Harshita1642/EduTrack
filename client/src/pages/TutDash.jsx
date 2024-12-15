@@ -14,7 +14,7 @@ import Courses from "@/components/Courses/Courses";
 import AdminCourses from "@/components/Admin/AdminCourses";
 import AddQuiz from "./AddQuiz";
 import Lecture from "../components/Courses/Lecture"
-import { useLocation } from 'react-router-dom';
+import StatusBar from "@/components/StatusBar";
 
 const TutDashboard = () => {
   const [tabContent, setTabContent] = useState('TutDashboard');
@@ -28,6 +28,9 @@ const TutDashboard = () => {
           <div className={c.container}>
             <div className={c.calendar}>
               <Calendar />
+            </div>
+            <div className={c.statusBar}>
+              <StatusBar />
             </div>
             <div className={c.todo}>
             <Todo/>
