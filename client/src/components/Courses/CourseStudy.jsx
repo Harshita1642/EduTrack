@@ -12,7 +12,7 @@ export default function CourseStudy({ user }) {
   const { fetchCourse, course } = CourseData()
 
   useEffect(() => {
-    if (user && user.role !== "teacher" && !user.subscription.includes(params.id)) {
+    if (user && user.role !== "admin" && !user.subscription.includes(params.id)) {
       navigate("/")
     } else {
       fetchCourse(params.id)
@@ -24,7 +24,7 @@ export default function CourseStudy({ user }) {
   }
 
   return (<>
-    <TutDashboard/>
+    {/* <TutDashboard/> */}
     <div className="container mx-auto px-4 py-8">
       <Card className="overflow-hidden">
         <div className="relative h-64 md:h-96">

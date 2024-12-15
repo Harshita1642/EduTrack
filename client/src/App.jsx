@@ -15,6 +15,8 @@ import TakeABreakPage from "./pages/TakeABreakPage";
 import HomePage from './pages/HomePage';
 import CourseDescription from "./components/Courses/CourseDescription";
 import PaymentSuccess from "./components/Courses/PaymentSuccess";
+import CourseStudy from "./components/Courses/CourseStudy";
+import Lecture from "./components/Courses/Lecture";
 
 
 const App = () => {
@@ -41,6 +43,14 @@ const App = () => {
           <Route
               path="/payment-success/:id"
               element={isAuth ? <PaymentSuccess user={user} /> : <Login />}
+            />
+          <Route
+              path="/course/study/:id"
+              element={isAuth ? <CourseStudy user={user} /> : <Login />}
+            />
+            <Route
+              path="/lectures/:id"
+              element={isAuth ? <Lecture user={user} /> : <Login />}
             />
 
         </Routes>

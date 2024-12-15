@@ -7,23 +7,24 @@ import { CourseData } from "../../context/CourseContext";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, ArrowRight, Trash2 } from "lucide-react";
+import { BookOpen, ArrowRight, Trash2, Lectern } from "lucide-react";
 import { LogIn } from "lucide-react";
 import styles from '../../Styles/Courses.module.css'; 
+import Lecture from "./Lecture";
 
 
 const CourseCard = ({ course ,setTabContent}) => {
   const navigate = useNavigate();
   const { user, isAuth } = UserData();
   const { fetchCourses } = CourseData();
-  const navigateToOtherComponent = (component) => { setTabContent(component); };
+  const navigateToOtherComponent = (component) => { setTabContent(component) };
   console.log(UserData);
   console.log(isAuth)
   const deleteHandler = async (id) => {
     console.log("jngjrn")
     try {
         console.log("fonfirgr")
-        const { data } = await axios.delete(`${API}/api/course/${id}`, {
+        const { data } = await API.delete(`course/${id}`, {
           headers: {
             token: localStorage.getItem("token"),
           },
@@ -92,8 +93,10 @@ const CourseCard = ({ course ,setTabContent}) => {
                       
                       onClick={() => {
                         console.log('Course ID:', course._id);
-                        
-                        navigateToOtherComponent('Lecture')}}
+                        // navigate('/Lecture')
+                        // navigateToOtherComponent(Lecture)
+                        navigate(`/course/study/${course._id}`)
+                      }}
                     >
                       <BookOpen className="mr-2 h-4 w-4" />
                       Study Now

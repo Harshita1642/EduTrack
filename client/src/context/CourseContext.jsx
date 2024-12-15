@@ -21,6 +21,7 @@ export const CourseContextProvider = ({ children }) => {
 
   async function fetchCourse(id) {
     try {
+     console.log("chla");
       const { data } = await API.get(`/course/${id}`);
       setCourse(data.course);
     } catch (error) {
