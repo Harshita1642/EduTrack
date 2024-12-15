@@ -15,9 +15,9 @@
     background-color: rgb(88, 28, 135);
     border-radius: 16px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 90%; /* Responsive width */
-    max-width: 500px; /* Maximum width */
-    margin: 0 auto; /* Horizontal centering */
+    width: 90%; 
+    max-width: 500px; 
+    margin: 0 auto; 
   }
   
   .home-title {

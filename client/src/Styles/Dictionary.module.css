@@ -1,11 +1,11 @@
 .container {
     display: flex;
-    flex-direction: column; /* Stacks children vertically */
+    flex-direction: column;
     align-items: center;
     width: 100vw;
     max-width: 900px;
     margin: 0 auto;
-    padding: 10px; /* Adjust padding to avoid offset */
+    padding: 10px; 
     position: relative;
     left:50px
 }
@@ -13,7 +13,7 @@
 .searchBar {
     display: flex;
     align-items: center;
-    width: 100%; /* Ensures the search bar takes up full width */
+    width: 100%; 
 }
 
 .inputBox {
@@ -21,7 +21,7 @@
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 20px; /* Rounded corners for the input box */
+    border-radius: 20px; 
     font-size: 16px;
     width: 100%;
 }
@@ -37,7 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px; /* Adds spacing between the input box and the button */
+    margin-left: 10px; 
 }
 
 .button:hover {
@@ -49,31 +49,31 @@
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
-    text-align: center; /* Centers the error message */
+    text-align: center; 
 }
 
 .resultBox {
     padding: 20px;
-    background-color: #f9f9f9; /* Light background color */
+    background-color: #f9f9f9; 
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-    width: 100%; /* Ensure full width */
-    max-width: 900px; /* Matches max-width of container */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    margin-top: 20px; /* Adds space between the search bar and result box */
-    align-self: stretch; /* Ensures the result box stretches within the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    max-width: 900px;
+    transition: all 0.3s ease; 
+    margin-top: 20px; 
+    align-self: stretch;
     z-index: 10;
 }
 
 .resultBox:hover {
-    transform: translateY(-5px); /* Slight hover effect for interactivity */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
 }
 
 .phonetic h3,
 .definition h3 {
     margin-bottom: 10px;
-    color: #592e83; /* Color for section titles */
+    color: #592e83; 
 }
 
 .phonetic {
@@ -96,5 +96,5 @@
 
 .definition em {
     font-style: italic;
-    color: #555; /* Lighter color for examples */
+    color: #555; 
 }

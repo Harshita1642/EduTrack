@@ -1,27 +1,27 @@
-/* client/src/Styles/Courses.module.css */
+
 .container {
     display: flex; 
-    flex-direction: column; /* Stack items vertically */
-    height: 100vh; /* Full height of the viewport */
-    width: calc(100vw + 100px); /* Full width of the viewport plus 100px */
-    margin-left: -200px; /* Move the container 100px to the left */
-    background-color: #d8c0f7; /* Background color */
-    overflow: hidden; /* Prevent overflow */
+    flex-direction: column;
+    height: 100vh; 
+    width: calc(100vw + 100px);
+    margin-left: -200px;
+    background-color: #d8c0f7;
+    overflow: hidden; 
 }
 
 .content {
-    flex-grow: 1; /* Allow this div to grow and fill the space */
+    flex-grow: 1; 
     display: flex; 
-    flex-direction: column; /* Stack content vertically */
-    justify-content: flex-start; /* Align content to the top */
-    align-items: center; /* Center content horizontally */
-    padding: 20px; /* Add padding for spacing */
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    padding: 20px; 
 }
 
 .courseCard {
-    background-color: lightgray; /* Set background color for course cards */
-    width: 100%; /* Ensure course cards cover the entire width */
-    margin-bottom: 16px; /* Space between course cards */
-    border-radius: 8px; /* Optional: rounded corners */
-    padding: 16px; /* Optional: padding inside course cards */
+    background-color: lightgray; 
+    width: 100%; 
+    margin-bottom: 16px;
+    border-radius: 8px;
+    padding: 16px; 
 }

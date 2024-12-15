@@ -24,7 +24,7 @@ const TakeABreakPage = () => {
   ];
 
   return (
-    <div className="flex w-full h-screen" style={{ backgroundColor: "#d8c0f7" }}>
+    <div className={s.outercontainer}>
       <div className="flex-1">
         <div className={s.pageContainer}>
           <h1 className={s.pageTitle}>Time to Recharge!</h1>

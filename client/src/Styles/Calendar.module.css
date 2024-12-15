@@ -75,7 +75,7 @@
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
-    /* border: 1px solid #eee; */
+
     border-radius: 14px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -98,7 +98,7 @@
     border-color: #ffa94d !important;
   }
   
-  /* Optional: Add some responsive styles */
+
   @media (max-width: 400px) {
     .calendarContainer {
       width: 95%;
@@ -114,7 +114,7 @@
     }
   }
   
-  /* Optional: Add animations */
+
   .calendarDay {
     animation: fadeIn 0.3s ease-in;
   }
@@ -130,13 +130,12 @@
     }
   }
   
-  /* Optional: Add selected state */
   .selected {
     background-color: #ffd699;
     border-color: #ffbf69;
   }
   
-  /* Optional: Add disabled state */
+
   .disabled {
     opacity: 0.4;
     cursor: not-allowed;

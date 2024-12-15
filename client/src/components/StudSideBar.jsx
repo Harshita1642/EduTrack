@@ -93,12 +93,6 @@ const StudSideBar = ({ setTabContent }) => {
           </Button>
         </SidebarGroup>
         <SidebarGroup className={s["sidebar-group"]}>
-          <Button className={s["sidebar-button"]} variant="ghost" size="sm">
-            <BookOpenIcon className="w-5 h-5 mr-2" /> {/* Upload icon */}
-            My Classes
-          </Button>
-        </SidebarGroup>
-        <SidebarGroup className={s["sidebar-group"]}>
           <Button
             className={s["sidebar-button"]}
             variant="ghost"
