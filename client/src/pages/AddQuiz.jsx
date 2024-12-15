@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import c from "../Styles/AddQuiz.module.css"; // Adjust the path if necessary
+import c from "../Styles/AddQuiz.module.css"; 
 
 const AddQuiz = () => {
   const [quiz, setQuiz] = useState({
@@ -51,13 +51,14 @@ const AddQuiz = () => {
   };
 
   return (
-    <div className={c.container}>
-      <h1 className={c.heading}>Add Quiz</h1>
-      <form className={c.form} onSubmit={handleSubmit}>
+    <div className={c.outer}>
+    <div className={c["add-quiz-container"]}>
+      <h1 className={c["add-quiz-heading"]}>Add Quiz</h1>
+      <form className={c["add-quiz-form"]} onSubmit={handleSubmit}>
         <div>
-          <label className={c.label}>Title:</label>
+          <label className={c["add-quiz-label"]}>Title:</label>
           <input
-            className={c.input}
+            className={c["add-quiz-input"]}
             type="text"
             name="title"
             value={quiz.title}
@@ -66,9 +67,9 @@ const AddQuiz = () => {
           />
         </div>
         <div>
-          <label className={c.label}>Description:</label>
+          <label className={c["add-quiz-label"]}>Description:</label>
           <textarea
-            className={c.input}
+            className={c["add-quiz-input"]}
             name="description"
             value={quiz.description}
             onChange={handleQuizChange}
@@ -76,9 +77,9 @@ const AddQuiz = () => {
           />
         </div>
         <div>
-          <label className={c.label}>Course name:</label>
+          <label className={c["add-quiz-label"]}>Course name:</label>
           <input
-            className={c.input}
+           className={c["add-quiz-input"]}
             type="text"
             name="course"
             value={quiz.course}
@@ -87,9 +88,9 @@ const AddQuiz = () => {
           />
         </div>
         <div>
-          <label className={c.label}>Correct Marks:</label>
+          <label className={c["add-quiz-label"]}>Correct Marks:</label>
           <input
-            className={c.input}
+            className={c["add-quiz-input"]}
             type="number"
             name="correctMarks"
             value={quiz.correctMarks}
@@ -98,9 +99,9 @@ const AddQuiz = () => {
           />
         </div>
         <div>
-          <label className={c.label}>Incorrect Marks:</label>
+          <label className={c["add-quiz-label"]}>Incorrect Marks:</label>
           <input
-            className={c.input}
+            className={c["add-quiz-input"]}
             type="number"
             name="incorrectMarks"
             value={quiz.incorrectMarks}
@@ -109,9 +110,9 @@ const AddQuiz = () => {
           />
         </div>
         <div>
-          <label className={c.label}>Start Time:</label>
+          <label className={c["add-quiz-label"]}>Start Time:</label>
           <input
-            className={c.input}
+            className={c["add-quiz-input"]}
             type="datetime-local"
             name="startTime"
             value={quiz.startTime}
@@ -120,9 +121,9 @@ const AddQuiz = () => {
           />
         </div>
         <div>
-          <label className={c.label}>Login Window (in minutes):</label>
+          <label className={c["add-quiz-label"]}>Login Window (in minutes):</label>
           <input
-            className={c.input}
+            className={c["add-quiz-input"]}
             type="number"
             name="loginWindow"
             value={quiz.loginWindow}
@@ -131,11 +132,11 @@ const AddQuiz = () => {
           />
         </div>
 
-        <h2 className={c.heading}>Add Questions</h2>
+        <h2 className={c["add-quiz-heading"]}>Add Questions</h2>
         <div>
-          <label className={c.label}>Question:</label>
+          <label className={c["add-quiz-label"]}>Question:</label>
           <textarea
-            className={c.input}
+            className={c["add-quiz-input"]}
             name="question"
             value={question.question}
             onChange={handleQuestionChange}
@@ -144,9 +145,9 @@ const AddQuiz = () => {
         </div>
         {question.options.map((option, index) => (
           <div key={index}>
-            <label className={c.label}>Option {index + 1}:</label>
+            <label className={c["add-quiz-label"]}>Option {index + 1}:</label>
             <input
-              className={c.input}
+              className={c["add-quiz-input"]}
               type="text"
               value={option}
               onChange={(e) => handleOptionChange(index, e.target.value)}
@@ -155,9 +156,9 @@ const AddQuiz = () => {
           </div>
         ))}
         <div>
-          <label className={c.label}>Correct Answer (Option Number):</label>
+          <label className={c["add-quiz-label"]}>Correct Answer (Option Number):</label>
           <input
-            className={c.input}
+            className={c["add-quiz-input"]}
             type="number"
             name="correctAnswer"
             value={question.correctAnswer}
@@ -165,23 +166,25 @@ const AddQuiz = () => {
             required
           />
         </div>
-        <button className={c.button} type="button" onClick={addQuestion}>
+        <button className={c["add-quiz-button"]} type="button" onClick={addQuestion}>
           Add Question
         </button>
-
-        <h3 className={c.heading}>Questions Preview</h3>
-        <ul className={c.preview}>
+        
+        <h3 className={c["add-quiz-heading"]}>Questions Preview</h3>
+        <ul className={c["add-quiz-preview"]}>
           {quiz.questions.map((q) => (
-            <li key={q.s_no} className={c.previewItem}>
+            <li key={q.s_no} className={c["add-quiz-previewItem"]}>
               {q.s_no}. {q.question}
             </li>
           ))}
         </ul>
 
-        <button className={c.button} type="submit">
+        <button className={c["add-quiz-button"]} type="submit">
           Submit Quiz
         </button>
       </form>
+    </div>
+      
     </div>
   );
 };
